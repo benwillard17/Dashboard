@@ -1,0 +1,26 @@
+<%inherit file="base.htm" />
+
+<%block name="jumbotron">
+    <img class="jumbo-image" src="${ STATIC_URL}homepage/media/jumbotron_woods.jpg">
+</%block>
+
+<%block name="content">
+    <form action ="POST">
+      ## ${ form }
+      <input id="id_username" name="username" /> <span id="id_username_message"></span>
+      <input id="id_password" name="password" /> <span id="id_password_message"></span>
+    </form>
+
+</%block>
+
+<%block name="content_left">
+    <p class="text-center">Left Content</p>
+</%block>
+
+<%block name="content_center">
+  <p class="text-center">Center Content</p>
+</%block>
+
+<%block name="content_right">
+  <p class="text-center">Right Content</p>
+</%block>

@@ -1,0 +1,34 @@
+<%inherit file="base.htm"/>
+
+<!--nothing to import-->
+
+<%block name="content">
+
+  <div class = "text-left">
+    <h2>Login</h2>
+  </div>
+
+  <form method="POST">
+      %for field in form:
+        <div class="form-group">
+            <label for=${field.name}>${field.label} ${field.errors}</label>
+            ${ field }
+        </div>
+      %endfor
+
+      <button class="btn btn-warning" type="submit">Login</button>
+    </form>
+
+</%block>
+
+<%block name="jumbotron">
+</%block>
+
+<%block name="content_left">
+</%block>
+
+<%block name="content_center">
+</%block>
+
+<%block name="content_right">
+</%block>

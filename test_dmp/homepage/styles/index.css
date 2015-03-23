@@ -1,0 +1,50 @@
+table {
+	margin: auto;
+	width: auto;
+
+}
+
+.jumbotron{
+	background: white;
+	text-align: center;
+	font-family: "Lucida Console"
+	font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: 500px;
+    width: 1700px; /* ie8 */
+}
+
+
+h1 {
+	font-family: "Lucida Console"
+	font-weight: bold;
+}
+
+.navbar{
+	font-size: 20px;
+}
+
+div.image{
+    background-repeat: no-repeat;
+    background-position: top;
+    margin : 0px;
+    padding : 0px;
+    height: 30%;
+    width : 90%;
+    overflow: hidden;
+    margin: auto;
+}
+
+div.col-md-4{
+	height: 300px;
+	font-style: italic;
+}
+
+p.quote{
+	font-family: "Garamond";
+	font-style: italic;
+	font-size: 19px;
+}
