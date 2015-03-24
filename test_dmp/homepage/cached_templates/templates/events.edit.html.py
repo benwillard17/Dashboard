@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1423215777.840839
+_modified_time = 1427154810.935066
 _enable_loop = True
-_template_filename = 'C:\\Users\\Taylor\\test_dmp\\homepage\\templates/events.edit.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/events.edit.html'
 _template_uri = 'events.edit.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content_left', 'jumbotron', 'content_right', 'content']
+_exports = ['content_right', 'jumbotron', 'content_left', 'content', 'content_center']
 
 
 def _mako_get_namespace(context, name):
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
         event = context.get('event', UNDEFINED)
         def content_center():
             return render_content_center(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -72,23 +72,11 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
+def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -108,11 +96,11 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_right():
-            return render_content_right(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -123,13 +111,13 @@ def render_content_right(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        event = context.get('event', UNDEFINED)
         form = context.get('form', UNDEFINED)
         def content():
             return render_content(context)
+        event = context.get('event', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<h2>Edit Event: ')
-        __M_writer(str(event.event_name))
+        __M_writer(str(event.name))
         __M_writer('</h2>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
         __M_writer('\r\n')
         for field in form:
@@ -150,8 +138,20 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\Taylor\\test_dmp\\homepage\\templates/events.edit.html", "line_map": {"64": 34, "131": 5, "132": 7, "69": 37, "134": 13, "135": 14, "136": 15, "137": 16, "138": 16, "75": 33, "140": 16, "141": 16, "142": 16, "59": 31, "144": 17, "81": 33, "146": 23, "147": 23, "139": 16, "87": 30, "153": 147, "27": 0, "93": 30, "133": 7, "99": 27, "145": 20, "105": 27, "44": 1, "111": 36, "49": 25, "117": 36, "54": 28, "123": 5, "143": 17}, "uri": "events.edit.html", "source_encoding": "ascii"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/events.edit.html", "line_map": {"64": 34, "128": 16, "130": 16, "131": 17, "132": 17, "69": 37, "134": 23, "129": 16, "75": 36, "141": 33, "59": 31, "81": 36, "147": 33, "87": 27, "153": 147, "27": 0, "93": 27, "133": 20, "99": 30, "105": 30, "135": 23, "44": 1, "111": 5, "49": 25, "54": 28, "119": 5, "120": 7, "121": 7, "122": 13, "123": 14, "124": 15, "125": 16, "126": 16, "127": 16}, "source_encoding": "ascii", "uri": "events.edit.html"}
 __M_END_METADATA
 """

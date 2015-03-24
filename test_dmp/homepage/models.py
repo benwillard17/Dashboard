@@ -66,8 +66,8 @@ class Event(models.Model):
     '''
     name = models.TextField()
     description = models.TextField(max_length=500, null=True, blank=True)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
     map_file_name = models.TextField(max_length=500, null=True, blank=True)
     venue_name = models.TextField(max_length=200)
     address1 = models.TextField(max_length=200)
