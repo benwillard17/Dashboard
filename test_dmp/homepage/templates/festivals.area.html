@@ -15,7 +15,16 @@
 			<div class="row">
         		<div class="col-xs-12 bg-default">
 				
-        	
+        	<h2>Products</h2>
+			%for product in products:
+				<div id="festivalproduct" class="item_container col-xs-2">
+						<a href="/homepage/productlist.viewproduct/${ product.id }/">
+							<div id="product" class="">${ product.name }</div>
+							<img width = "100%" src="${STATIC_URL}homepage/media/${ product.photo }"/>
+								<div id="current_price" class="">$${ product.current_price }</div>
+					</a>
+				</div>
+			%endfor
 		</div>
 	</div>
 </%block>
