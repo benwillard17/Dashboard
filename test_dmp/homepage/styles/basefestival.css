@@ -80,6 +80,7 @@ a:active {
     text-decoration: none;
 }
 
-#festivalproduct {
-  display: inline-block;
+#festivalcontainer{
+  padding: 15px;
 }
+
