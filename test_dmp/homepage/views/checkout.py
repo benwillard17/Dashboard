@@ -6,6 +6,7 @@ from django_mako_plus.controller import view_function
 import homepage.models as hmod
 from django.shortcuts import redirect
 from django_mako_plus.controller.router import get_renderer
+from django.core.mail import send_mail
 
 
 templater = get_renderer('homepage')
@@ -21,4 +22,20 @@ def process_request(request):
     params = {}
 
     return templater.render_to_response(request, 'checkout.html', params)
+
+
+##########################################################################
+# shows the list of products
+@view_function
+def receipt(request):
+    if not request.user.is_authenticated():
+        return redirect('/homepage/login/?next=%s' % request.path)
+
+    params = {}
+
+    useremail = request.user.email
+
+    send_mail('Receipt of Purchase', 'Thank you for your recent purchase.', settings.EMAIL_HOST_USER, [request.user.email], fail_silently=False)
+
+    return templater.render_to_response(request, 'receipt.html', params)
 

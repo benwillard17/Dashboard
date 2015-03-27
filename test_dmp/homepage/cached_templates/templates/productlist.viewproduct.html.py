@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425791932.579253
+_modified_time = 1427414670.960418
 _enable_loop = True
-_template_filename = 'C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/productlist.viewproduct.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/productlist.viewproduct.html'
 _template_uri = 'productlist.viewproduct.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_right', 'content', 'jumbotron', 'content_left', 'content_center']
+_exports = ['content_center', 'content', 'content_left', 'title', 'content_right', 'jumbotron']
 
 
 def _mako_get_namespace(context, name):
@@ -28,19 +28,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
-        product = context.get('product', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
         def content_center():
             return render_content_center(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        product = context.get('product', UNDEFINED)
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
+        __M_writer('\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'jumbotron'):
             context['self'].jumbotron(**pageargs)
@@ -71,11 +78,11 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
+def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_right():
-            return render_content_right(context)
+        def content_center():
+            return render_content_center(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -117,18 +124,6 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -141,11 +136,35 @@ def render_content_left(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
+def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_center():
-            return render_content_center(context)
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Product Detail</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -155,6 +174,6 @@ def render_content_center(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 47, "132": 43, "150": 46, "113": 33, "108": 26, "74": 49, "80": 49, "144": 46, "86": 6, "27": 0, "156": 150, "94": 6, "95": 8, "96": 8, "97": 12, "98": 12, "99": 12, "100": 12, "101": 23, "102": 23, "103": 24, "104": 24, "105": 25, "106": 25, "107": 26, "44": 1, "109": 31, "110": 31, "111": 33, "112": 33, "49": 4, "114": 33, "54": 41, "120": 3, "59": 44, "138": 43, "126": 3}, "filename": "C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/productlist.viewproduct.html", "uri": "productlist.viewproduct.html", "source_encoding": "ascii"}
+{"line_map": {"66": 48, "115": 30, "133": 47, "71": 51, "145": 3, "139": 3, "175": 169, "157": 53, "81": 50, "110": 28, "87": 50, "120": 37, "27": 0, "93": 10, "163": 7, "101": 10, "102": 12, "103": 12, "104": 16, "105": 16, "106": 16, "107": 16, "108": 27, "109": 27, "46": 1, "111": 28, "112": 29, "113": 29, "114": 30, "51": 5, "116": 35, "117": 35, "118": 37, "119": 37, "56": 8, "121": 37, "151": 53, "61": 45, "169": 7, "127": 47}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/productlist.viewproduct.html", "source_encoding": "ascii", "uri": "productlist.viewproduct.html"}
 __M_END_METADATA
 """

@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425734242.64216
+_modified_time = 1427418623.51177
 _enable_loop = True
-_template_filename = 'C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/users.new.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/users.new.html'
 _template_uri = 'users.new.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'content_right', 'jumbotron', 'content_left', 'content_center']
+_exports = ['jumbotron', 'title', 'content_left', 'content_center', 'content', 'content_right']
 
 
 def _mako_get_namespace(context, name):
@@ -28,19 +28,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -65,6 +72,54 @@ def render_body(context,**pageargs):
             context['self'].content_right(**pageargs)
         
 
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Create User</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
     finally:
@@ -108,44 +163,8 @@ def render_content_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_center(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "line_map": {"129": 29, "68": 36, "135": 32, "74": 5, "141": 32, "81": 5, "82": 13, "83": 14, "84": 15, "85": 16, "86": 16, "87": 16, "88": 16, "89": 16, "90": 16, "91": 17, "92": 17, "93": 20, "27": 0, "105": 35, "43": 1, "111": 26, "48": 24, "99": 35, "147": 141, "53": 27, "58": 30, "123": 29, "117": 26, "63": 33}, "uri": "users.new.html", "filename": "C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/users.new.html"}
+{"source_encoding": "ascii", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/users.new.html", "uri": "users.new.html", "line_map": {"65": 34, "139": 19, "70": 37, "129": 9, "136": 9, "137": 17, "138": 18, "75": 40, "140": 20, "141": 20, "142": 20, "143": 20, "144": 20, "81": 30, "146": 21, "147": 21, "148": 24, "87": 30, "154": 39, "27": 0, "93": 5, "160": 39, "99": 5, "166": 160, "145": 20, "105": 33, "45": 1, "111": 33, "50": 7, "117": 36, "55": 28, "123": 36, "60": 31}}
 __M_END_METADATA
 """

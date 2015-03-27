@@ -2,6 +2,10 @@
 
 <!--nothing to import-->
 
+<%block name="title">
+    <title>CHF: Checkout</title>
+  </%block>
+
 <%block name="content">
 	<h2>Enter Checkout Information</h2>
 			<form>
@@ -21,7 +25,7 @@
 				<input type="text" name="Zip">
 				<br>
 			</form><br>
-			<a class="btn btn-success" href="/homepage/receipt">Complete Purchase</a>
+			<a class="btn btn-success" href="/homepage/checkout.receipt">Complete Purchase</a>
 			<a class="btn btn-default" href="/homepage/productlist">Cancel</a>
 </%block>
 

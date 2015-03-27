@@ -45,6 +45,15 @@ INSTALLED_APPS = (
     'homepage',
 )
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'kbj17.me'
+EMAIL_HOST_PASSWORD = 'ISRocks!'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'kbj17.me@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
