@@ -21,7 +21,7 @@ def process_request(request):
     params = {}
     cursor = connection.cursor()
     now= time.strftime("%x")
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [now])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False))', [now])
     overdue = cursor.fetchall()
 
     params['overdues'] = overdue

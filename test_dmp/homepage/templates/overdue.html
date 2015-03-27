@@ -8,10 +8,12 @@
 
 <%block name="content">
 <h2>Rented Items Overdue</h2>
+	<div class = "text-right">
+      <a href ="/homepage/overdue/" class= "btn btn-success">Overdue Emails</a>
+  	</div>
 		<table id="manage_table" class = "table table-striped table-bordered">
 		    <tr>
 		      <th>ID</th>
-		      <th>Name</th>
 		      <th>Condition</th>
 		      <th>Due Date</th>
 		      <th>Late Fee</th>
@@ -20,12 +22,13 @@
 					<tr>
 			            <td> ${ overdue[0] }</td>
 			            <td> ${ overdue[1] }</td>
-			            <td> ${ overdue[2] }</td>
-			            <td> ${ overdue[6] }</td>
-			            <td> $${ overdue[5] }</td>
+			            <td> ${ overdue[4] }</td>
+			            <td> $${ overdue[3] }</td>
 					</tr>
 				%endfor
 		</table>
+
+
 </%block>
 
 <%block name="jumbotron">

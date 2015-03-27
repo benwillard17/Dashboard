@@ -142,6 +142,19 @@ user.save()
 
 group.user_set.add(user)
 
+for data in [
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'True', 'username': 'CHF', 'password': "set_password('asdf')", 'first_name': 'Colonial', 'last_name': 'Heritage', 'email': 'kbj17.me@gmail.com', 'address': '1234 North Center Street', 'city': 'Lehi', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4443334444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'ben17', 'password': "set_password('asdf')", 'first_name': 'Ben', 'last_name': 'Willard', 'email': 'kbj17.me@gmail.com', 'address': 'North Circle', 'city': 'Provo', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4445554444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'taylor', 'password': "set_password('asdf')", 'first_name': 'Taylor', 'last_name': 'Curtis', 'email': 'tcurtistest@gmail.com', 'address': 'GW Boulevard', 'city': 'Salt Lake City', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4446662222', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'john', 'password': "set_password('asdf')", 'first_name': 'John', 'last_name': 'Hulet', 'email': 'tcurtistest@gmail.com', 'address': 'Frosty Lane', 'city': 'Antartica', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4441115555', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'landon', 'password': "set_password('asdf')", 'first_name': 'Landon', 'last_name': 'Meservy', 'email': 'tcurtistest@gmail.com', 'address': 'Arctic Circle Drive', 'city': 'Ancestry', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4440009999', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'}
+]:
+
+    d = hmod.User()
+    for k, v in data.items():
+        setattr(d, k, v)
+    d.save()
+
 # populating data for events
 for data in [
     {'name': 'Freedom Parade', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-1-1', 'end_date': '2015-1-10', 'map_file_name': 'map1.jpg', 'venue_name': 'Colonial Heritage Park', 'address1': '400 July Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999'},
@@ -213,20 +226,20 @@ for data in [
 
 # populating data rental item
 for data in [
-    {'name': 'Mayflower Replica', 'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Wig', 'condition': 'Used', 'late_fee': '45.00', 'due_date': '2014-12-19', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Waistcoat', 'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Magic Wand', 'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Blacksmithing Materials', 'condition': 'Like New', 'late_fee': '23.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Horseshoes', 'condition': 'Used', 'late_fee': '56.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Cannon', 'condition': 'Like New', 'late_fee': '576.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Lightsabre', 'condition': 'Used', 'late_fee': '52.00', 'due_date': '2015-2-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Presedential Book', 'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2015-2-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Sword', 'condition': 'Used', 'late_fee': '500.00', 'due_date': '2015-2-19', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Colonial Uniform', 'condition': 'Used', 'late_fee': '22.00', 'due_date': '2015-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Printing Press', 'condition': 'Like New', 'late_fee': '1.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': '1776 Flag', 'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'name': 'Constitution Replica', 'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '45.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '23.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '56.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '576.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '52.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '22.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '1.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
 ]:
 
     d = hmod.RentalItem()

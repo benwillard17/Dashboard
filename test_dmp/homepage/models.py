@@ -107,6 +107,7 @@ class Item(models.Model):
     standard_rental_price = models.DecimalField(max_digits=10, decimal_places=2)
     is_rentable = models.BooleanField(default=False)
     owner = models.ForeignKey(User)
+    photo = models.TextField(null=True)
 
     def __str__(self):
         return self.name
@@ -171,12 +172,10 @@ class RentalItem(models.Model):
         DESCRIPTION:    An association class that adds more information when a user rents an item.
         NOTES:
     '''
-    name = models.TextField(max_length=500)
     condition = models.TextField(max_length=500)
     new_damage = models.BooleanField(default=False)
     damage_fee = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     late_fee = models.DecimalField(max_digits=10, decimal_places=2, null=True)
-    due_date = models.DateField(null=True)
     returned = models.BooleanField(default=False)
     rental_return = models.ForeignKey(Return, null=True, related_name='items_returned')
     rental = models.ForeignKey(Rental, null=True)
