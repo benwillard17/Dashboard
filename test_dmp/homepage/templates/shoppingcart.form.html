@@ -28,6 +28,29 @@
         %endfor
       </tbody>
   </table>
+  <table id="manage_table_shopping" class = "table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Item Name</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        %for key in items:
+        <% i = items[key] %>
+          <tr>
+            <td><img class="text-center" height="75" src="${STATIC_URL}homepage/media/${ p.photo }" alt=""></td>
+            <td>${ i.name }</td>
+            <td>$ ${ i.standard_rental_price * cart[str(i.id)] }</td>
+            <td width="15%" nowrap>
+              <a href="/homepage/shoppingcart.delete/${ i.id }/" data-id="${ i.id }" class="btn btn-danger">Remove</a>
+            </td>
+          </tr>
+        %endfor
+      </tbody>
+  </table>
 
   <div id="Total" class="pull-right">
   <h4>Total Amount: $${ amount }</h4>

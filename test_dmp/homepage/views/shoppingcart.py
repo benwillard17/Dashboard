@@ -23,6 +23,7 @@ def process_request(request):
     # send it back to the view
     cart = request.session.get('cart', {})
     products = {}
+    items = {}
     amount = 0
 
     # loop through products to store in list
@@ -32,12 +33,24 @@ def process_request(request):
     # loop through products to find total amount
     for key in products:
         p = products[key]
-        amount += p.current_price * cart[str(p.id)]
+        pamount += p.current_price * cart[str(p.id)]
+
+    # loop through products to store in list
+    for item in hmod.Item.objects.filter(id__in=cart.keys()):
+        items[str(item.id)] = item
+
+    # loop through products to find total amount
+    for key in items:
+        i = items[key]
+        iamount += i.standard_rental_price * cart[str(i.id)]    
+
+    amount = iamount + pamount
 
     # load up params
     params = {
         'cart': cart,
         'products': products,
+        'items': items,
         'amount': amount,
     }
 

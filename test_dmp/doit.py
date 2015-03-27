@@ -142,12 +142,14 @@ user.save()
 
 group.user_set.add(user)
 
+
+# populating data for users
 for data in [
-    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'True', 'username': 'CHF', 'password': "set_password('asdf')", 'first_name': 'Colonial', 'last_name': 'Heritage', 'email': 'kbj17.me@gmail.com', 'address': '1234 North Center Street', 'city': 'Lehi', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4443334444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
-    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'ben17', 'password': "set_password('asdf')", 'first_name': 'Ben', 'last_name': 'Willard', 'email': 'kbj17.me@gmail.com', 'address': 'North Circle', 'city': 'Provo', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4445554444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
-    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'taylor', 'password': "set_password('asdf')", 'first_name': 'Taylor', 'last_name': 'Curtis', 'email': 'tcurtistest@gmail.com', 'address': 'GW Boulevard', 'city': 'Salt Lake City', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4446662222', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
-    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'john', 'password': "set_password('asdf')", 'first_name': 'John', 'last_name': 'Hulet', 'email': 'tcurtistest@gmail.com', 'address': 'Frosty Lane', 'city': 'Antartica', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4441115555', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
-    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'landon', 'password': "set_password('asdf')", 'first_name': 'Landon', 'last_name': 'Meservy', 'email': 'tcurtistest@gmail.com', 'address': 'Arctic Circle Drive', 'city': 'Ancestry', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4440009999', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'}
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'True', 'username': 'CHF', 'set_password': 'asdf', 'first_name': 'Colonial', 'last_name': 'Heritage', 'email': 'kbj17.me@gmail.com', 'address': '1234 North Center Street', 'city': 'Lehi', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4443334444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'ben17', 'set_password': 'asdf', 'first_name': 'Ben', 'last_name': 'Willard', 'email': 'kbj17.me@gmail.com', 'address': 'North Circle', 'city': 'Provo', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4445554444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'taylor', 'set_password': 'asdf', 'first_name': 'Taylor', 'last_name': 'Curtis', 'email': 'tcurtistest@gmail.com', 'address': 'GW Boulevard', 'city': 'Salt Lake City', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4446662222', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'john', 'set_password': 'asdf', 'first_name': 'John', 'last_name': 'Hulet', 'email': 'tcurtistest@gmail.com', 'address': 'Frosty Lane', 'city': 'Antartica', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4441115555', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'landon', 'set_password': 'asdf', 'first_name': 'Landon', 'last_name': 'Meservy', 'email': 'tcurtistest@gmail.com', 'address': 'Arctic Circle Drive', 'city': 'Ancestry', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4440009999', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
 ]:
 
     d = hmod.User()
@@ -172,7 +174,7 @@ for data in [
 # populating data for area
 for data in [
     {'name': 'Colonial Bakery', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=1), 'photo': hmod.Photograph.objects.get(id=1)},
-    {'name': 'Colonial Blacksmith', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=1), 'photo': hmod.Photograph.objects.get(id=1)},
+    {'name': 'Colonial Blacksmith', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=2), 'photo': hmod.Photograph.objects.get(id=1)},
 ]:
 
     d = hmod.Area()
@@ -182,8 +184,19 @@ for data in [
 
 # populating data for item
 for data in [
-    {'name': 'Mayflower Replica', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '15000.00', 'standard_rental_price': '500.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=1)},
-    {'name': 'Musket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '1000.00', 'standard_rental_price': '200.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=1)},
+    {'name': 'Mayflower Replica', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '15000.00', 'standard_rental_price': '500.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Musket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '100.00', 'standard_rental_price': '12.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Chair', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '90.00', 'standard_rental_price': '14.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Desk', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '89.00', 'standard_rental_price': '2.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Map', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '87.00', 'standard_rental_price': '3.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Cane', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '67.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Apron', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '56.00', 'standard_rental_price': '4.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Belt', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Jacket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '34.00', 'standard_rental_price': '6.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Uniform', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Hat', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '8.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Marbles', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '46.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Boots', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '9.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
 ]:
 
     d = hmod.Item()
@@ -193,8 +206,8 @@ for data in [
 
 # populating data for wardrobe item
 for data in [
-    {'name': 'Waistcoat', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '100.00', 'standard_rental_price': '10.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=1), 'size': 'M', 'size_modifier': 'Collar: 16 Inches', 'gender': 'M', 'color': 'red', 'pattern': 'plain', 'start_year': '1776', 'end_year': '1780', 'note': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
-    {'name': 'Breeches', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '90.00', 'standard_rental_price': '90.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=1), 'size': 'M', 'size_modifier': 'Waist: 32 Inches', 'gender': 'M', 'color': 'beige', 'pattern': 'plaid', 'start_year': '1733', 'end_year': '1799', 'note': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+    {'name': 'Waistcoat', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '100.00', 'standard_rental_price': '10.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'size': 'M', 'size_modifier': '', 'gender': 'M', 'color': '', 'pattern': '', 'start_year': '1776', 'end_year': '1780', 'note': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
+    {'name': 'Breeches', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '90.00', 'standard_rental_price': '8.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'size': 'M', 'size_modifier': '', 'gender': 'M', 'color': '', 'pattern': '', 'start_year': '1733', 'end_year': '1799', 'note': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'},
 ]:
 
     d = hmod.WardrobeItem()
@@ -204,8 +217,37 @@ for data in [
 
 # populating data for rental
 for data in [
-    {'time': '2015-2-4', 'due_date': '2015-3-4', 'discount_percent': '10', 'rentee': hmod.User.objects.get(id=1)},
-    {'time': '2015-3-4', 'due_date': '2015-4-4', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=1)},
+    #90 days
+    {'time': '2013-1-4', 'due_date': '2014-3-12', 'discount_percent': '10', 'rentee': hmod.User.objects.get(id=5)},
+    {'time': '2013-1-4', 'due_date': '2014-3-2', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=5)},
+    {'time': '2013-1-4', 'due_date': '2014-8-3', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=5)},
+    {'time': '2013-1-4', 'due_date': '2014-8-7', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=5)},
+    {'time': '2013-1-4', 'due_date': '2014-8-5', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=5)},
+
+    # future date
+    {'time': '2013-1-4', 'due_date': '2015-7-8', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=6)},
+    {'time': '2013-1-4', 'due_date': '2015-7-7', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=6)},
+    {'time': '2013-1-4', 'due_date': '2015-7-27', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=6)},
+    {'time': '2013-1-4', 'due_date': '2015-7-24', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=6)},
+    {'time': '2013-1-4', 'due_date': '2015-7-14', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=6)},
+
+    # 30 days
+    {'time': '2013-1-4', 'due_date': '2015-2-14', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=7)},
+    {'time': '2013-1-4', 'due_date': '2015-2-17', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=7)},
+    {'time': '2013-1-4', 'due_date': '2014-2-13', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=7)},
+    {'time': '2013-1-4', 'due_date': '2014-2-2', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=7)},
+    {'time': '2013-1-4', 'due_date': '2014-2-4', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=7)},
+
+    # 60 days
+    {'time': '2013-1-4', 'due_date': '2015-1-24', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=8)},
+    {'time': '2013-1-4', 'due_date': '2015-1-14', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=8)},
+    {'time': '2013-1-4', 'due_date': '2015-1-7', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=8)},
+    {'time': '2013-1-4', 'due_date': '2015-1-3', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=8)},
+
+    #future dare
+    {'time': '2013-1-4', 'due_date': '2016-3-15', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=4)},
+    {'time': '2013-1-4', 'due_date': '2016-3-18', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=4)},
+    {'time': '2013-1-4', 'due_date': '2016-3-21', 'discount_percent': '50', 'rentee': hmod.User.objects.get(id=4)},
 ]:
 
     d = hmod.Rental()
@@ -215,8 +257,9 @@ for data in [
 
 # populating data for return
 for data in [
-    {'time': '2015-3-6', 'fees_paid': 'True', 'fees_waived': 'False', 'agent': hmod.User.objects.get(id=1)},
-    {'time': '2015-3-6', 'fees_paid': 'True', 'fees_waived': 'False', 'agent': hmod.User.objects.get(id=1)},
+    {'time': '2015-3-12', 'fees_paid': 'True', 'fees_waived': 'False', 'agent': hmod.User.objects.get(id=6)},
+    {'time': '2015-2-6', 'fees_paid': 'True', 'fees_waived': 'False', 'agent': hmod.User.objects.get(id=7)},
+    {'time': '2015-2-6', 'fees_paid': 'True', 'fees_waived': 'False', 'agent': hmod.User.objects.get(id=8)},
 ]:
 
     d = hmod.Return()
@@ -226,20 +269,27 @@ for data in [
 
 # populating data rental item
 for data in [
-    {'condition': 'Like New', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Used', 'late_fee': '45.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '23.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Used', 'late_fee': '56.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '576.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Used', 'late_fee': '52.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Used', 'late_fee': '500.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Used', 'late_fee': '22.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '1.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
-    {'condition': 'Like New', 'late_fee': '50.00', 'new_damage': 'True',  'damage_fee': '10.00', 'rental_return': hmod.Return.objects.get(id=1), 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=1), 'item': hmod.Item.objects.get(id=1)},
+    {'condition': 'Used', 'late_fee': '45.00', 'due_date': '2014-12-19', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=2), 'item': hmod.Item.objects.get(id=3)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=3), 'item': hmod.Item.objects.get(id=2)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=4), 'item': hmod.Item.objects.get(id=4)},
+    {'condition': 'Like New', 'late_fee': '23.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=5), 'item': hmod.Item.objects.get(id=5)},
+    {'condition': 'Used', 'late_fee': '56.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=6), 'item': hmod.Item.objects.get(id=7)},
+    {'condition': 'Like New', 'late_fee': '576.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=7), 'item': hmod.Item.objects.get(id=6)},
+    {'condition': 'Used', 'late_fee': '52.00', 'due_date': '2015-2-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=8), 'item': hmod.Item.objects.get(id=8)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2015-2-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=9), 'item': hmod.Item.objects.get(id=9)},
+    {'condition': 'Used', 'late_fee': '500.00', 'due_date': '2015-2-19', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=10), 'item': hmod.Item.objects.get(id=11)},
+    {'condition': 'Used', 'late_fee': '22.00', 'due_date': '2015-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=11), 'item': hmod.Item.objects.get(id=10)},
+    {'condition': 'Like New', 'late_fee': '1.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=12), 'item': hmod.Item.objects.get(id=12)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=13), 'item': hmod.Item.objects.get(id=4)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-3-1', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=14), 'item': hmod.Item.objects.get(id=8)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-12', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=15), 'item': hmod.Item.objects.get(id=2)},
+    {'condition': 'Used', 'late_fee': '45.00', 'due_date': '2014-12-19', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=16), 'item': hmod.Item.objects.get(id=3)},
+    {'condition': 'Like New', 'late_fee': '50.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=17), 'item': hmod.Item.objects.get(id=6)},
+    {'condition': 'Like New', 'late_fee': '500.00', 'due_date': '2014-12-26', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=18), 'item': hmod.Item.objects.get(id=5)},
+    {'condition': 'Like New', 'late_fee': '23.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=19), 'item': hmod.Item.objects.get(id=4)},
+    {'condition': 'Used', 'late_fee': '56.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=20), 'item': hmod.Item.objects.get(id=9)},
+    {'condition': 'Like New', 'late_fee': '576.00', 'due_date': '2015-1-3', 'new_damage': 'True',  'damage_fee': '10.00', 'rental': hmod.Rental.objects.get(id=21), 'item': hmod.Item.objects.get(id=11)},
 ]:
 
     d = hmod.RentalItem()

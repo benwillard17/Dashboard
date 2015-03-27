@@ -1,4 +1,4 @@
-$(function () {
+ $(function () {
   $('.add_button').on('click',function() {
 
   	var pid = $(this).attr('data-pid');
