@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427555447.113549
+_modified_time = 1427556569.3426
 _enable_loop = True
-_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.edit.html'
-_template_uri = 'areas.edit.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/return.edit.html'
+_template_uri = 'return.edit.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_left', 'jumbotron', 'content_center', 'content_right', 'title', 'content']
+_exports = ['title', 'content_right', 'content_left', 'jumbotron', 'content', 'content_center']
 
 
 def _mako_get_namespace(context, name):
@@ -28,20 +28,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        area = context.get('area', UNDEFINED)
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -79,6 +78,30 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Return Item</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -103,6 +126,31 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        form = context.get('form', UNDEFINED)
+        def content():
+            return render_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n\r\n<h2>Return: </h2>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
+        __M_writer('\r\n')
+        for field in form:
+            __M_writer('        <div class="form-group">\r\n            <label for=')
+            __M_writer(str(field.name))
+            __M_writer('>')
+            __M_writer(str(field.label))
+            __M_writer(' ')
+            __M_writer(str(field.errors))
+            __M_writer('</label>\r\n            ')
+            __M_writer(str( field ))
+            __M_writer('\r\n        </div>\r\n')
+        __M_writer('\t\t\t\t<hr>\r\n\t\t\t\t<button class="btn btn-success" type="submit">Submit</button>\r\n\t\t\t\t<a class="btn btn-default" href="/homepage/return">Cancel</a>\r\n\t</form>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -115,62 +163,8 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Edit Areas</title>\r\n  ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        area = context.get('area', UNDEFINED)
-        form = context.get('form', UNDEFINED)
-        def content():
-            return render_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n\r\n<h2>Edit Area: ')
-        __M_writer(str(area.name))
-        __M_writer('</h2>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
-        __M_writer('\r\n')
-        for field in form:
-            __M_writer('        <div class="form-group">\r\n            <label for=')
-            __M_writer(str(field.name))
-            __M_writer('>')
-            __M_writer(str(field.label))
-            __M_writer(' ')
-            __M_writer(str(field.errors))
-            __M_writer('</label>\r\n            ')
-            __M_writer(str( field ))
-            __M_writer('\r\n        </div>\r\n')
-        __M_writer('\t\t\t\t<hr>\r\n\t\t\t\t<button class="btn btn-success" type="submit">Submit</button>\r\n\t\t\t\t<a class="btn btn-default" href="/homepage/areas">Cancel</a>\r\n\t\t\t\t<a href = "/homepage/areas.delete/')
-        __M_writer(str( area.id ))
-        __M_writer('/" class="btn btn-danger pull-right">Delete</a>\r\n\t</form>\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"line_map": {"66": 35, "164": 24, "71": 38, "136": 5, "76": 41, "130": 5, "142": 9, "152": 11, "82": 34, "163": 21, "150": 9, "151": 11, "88": 34, "153": 17, "154": 18, "27": 0, "156": 20, "157": 20, "94": 31, "159": 20, "160": 20, "161": 20, "162": 21, "155": 19, "100": 31, "165": 27, "166": 27, "106": 37, "172": 166, "46": 1, "112": 37, "51": 7, "158": 20, "118": 40, "56": 29, "124": 40, "61": 32}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.edit.html", "source_encoding": "ascii", "uri": "areas.edit.html"}
+{"line_map": {"65": 34, "139": 19, "70": 37, "129": 9, "136": 9, "137": 17, "138": 18, "75": 40, "140": 20, "141": 20, "142": 20, "143": 20, "144": 20, "81": 5, "146": 21, "147": 21, "148": 24, "87": 5, "154": 36, "27": 0, "93": 39, "160": 36, "99": 39, "166": 160, "145": 20, "105": 33, "45": 1, "111": 33, "50": 7, "117": 30, "55": 28, "123": 30, "60": 31}, "uri": "return.edit.html", "source_encoding": "ascii", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/return.edit.html"}
 __M_END_METADATA
 """

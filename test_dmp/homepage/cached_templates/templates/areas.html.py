@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425782529.794742
+_modified_time = 1427553617.913325
 _enable_loop = True
-_template_filename = 'C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/areas.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.html'
 _template_uri = 'areas.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content_left', 'jumbotron', 'content', 'content_right']
+_exports = ['content_left', 'content_right', 'content_center', 'title', 'jumbotron', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -30,16 +30,23 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         areas = context.get('areas', UNDEFINED)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
+        __M_writer('\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
@@ -71,6 +78,30 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -83,13 +114,13 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
+        def title():
+            return render_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\n')
+        __M_writer('\r\n    <title>CHF: Areas</title>\r\n  ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -133,20 +164,8 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\benwillard17\\test_dmp\\homepage\\templates/areas.html", "uri": "areas.html", "line_map": {"128": 28, "129": 28, "130": 32, "68": 45, "136": 44, "74": 41, "142": 44, "80": 41, "148": 142, "86": 38, "127": 26, "27": 0, "92": 38, "122": 24, "98": 35, "104": 35, "63": 42, "43": 1, "110": 5, "48": 33, "117": 5, "118": 21, "119": 22, "120": 23, "121": 23, "58": 39, "123": 24, "124": 25, "125": 25, "126": 26, "53": 36}, "source_encoding": "ascii"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.html", "line_map": {"65": 43, "70": 46, "135": 39, "75": 49, "141": 9, "81": 42, "148": 9, "149": 25, "150": 26, "87": 42, "152": 27, "153": 28, "154": 28, "27": 0, "156": 29, "93": 48, "158": 30, "159": 32, "160": 32, "161": 36, "151": 27, "99": 48, "167": 161, "129": 39, "105": 45, "45": 1, "111": 45, "157": 30, "50": 5, "155": 29, "117": 3, "55": 37, "123": 3, "60": 40}, "source_encoding": "ascii", "uri": "areas.html"}
 __M_END_METADATA
 """

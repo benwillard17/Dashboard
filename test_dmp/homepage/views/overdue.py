@@ -45,7 +45,8 @@ def process_request(request):
       homepage_rental.rentee_id = homepage_user.id AND
       homepage_rentalitem.rental_id = homepage_rental.id AND
       homepage_item.id = homepage_rentalitem.item_id AND
-      homepage_rental.due_date < %s and homepage_rental.due_date > %s
+      homepage_rental.due_date < %s and homepage_rental.due_date > %s AND
+      homepage_rentalitem.returned = FALSE
      ORDER BY
       homepage_rental.due_date ASC;''', ([thirty, sixty]))
     overdue1 = cursor.fetchall()
@@ -66,7 +67,8 @@ def process_request(request):
       homepage_rental.rentee_id = homepage_user.id AND
       homepage_rentalitem.rental_id = homepage_rental.id AND
       homepage_item.id = homepage_rentalitem.item_id AND
-      homepage_rental.due_date < %s and homepage_rental.due_date > %s
+      homepage_rental.due_date < %s and homepage_rental.due_date > %s AND
+      homepage_rentalitem.returned = FALSE
      ORDER BY
       homepage_rental.due_date ASC;''', ([sixty, ninety]))
     overdue2 = cursor.fetchall()
@@ -87,7 +89,8 @@ def process_request(request):
       homepage_rental.rentee_id = homepage_user.id AND
       homepage_rentalitem.rental_id = homepage_rental.id AND
       homepage_item.id = homepage_rentalitem.item_id AND
-      homepage_rental.due_date < %s
+      homepage_rental.due_date < %s AND
+      homepage_rentalitem.returned = FALSE
      ORDER BY
       homepage_rental.due_date ASC;''', ([ninety]) )
     overdue3 = cursor.fetchall()
@@ -121,7 +124,8 @@ def email(request):
     WHERE 
       homepage_rental.rentee_id = homepage_user.id AND
       homepage_rentalitem.rental_id = homepage_rental.id AND
-      homepage_item.id = homepage_rentalitem.item_id ''')
+      homepage_item.id = homepage_rentalitem.item_id AND
+      homepage_rentalitem.returned = FALSE ''')
     emaillist = cursor.fetchall()
 
 

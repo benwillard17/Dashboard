@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427555447.113549
+_modified_time = 1427555242.561917
 _enable_loop = True
-_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.edit.html'
-_template_uri = 'areas.edit.html'
+_template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/return.html'
+_template_uri = 'return.html'
 _source_encoding = 'ascii'
 import os, os.path, re
 _exports = ['content_left', 'jumbotron', 'content_center', 'content_right', 'title', 'content']
@@ -30,25 +30,24 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         def content_center():
             return render_content_center(context._locals(__M_locals))
-        area = context.get('area', UNDEFINED)
+        returns = context.get('returns', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
             context['self'].title(**pageargs)
         
 
-        __M_writer('\r\n\r\n')
+        __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -133,7 +132,7 @@ def render_title(context,**pageargs):
         def title():
             return render_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Edit Areas</title>\r\n  ')
+        __M_writer('\r\n    <title>CHF: Returns</title>\r\n  ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -142,28 +141,28 @@ def render_title(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        area = context.get('area', UNDEFINED)
-        form = context.get('form', UNDEFINED)
+        returns = context.get('returns', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<h2>Edit Area: ')
-        __M_writer(str(area.name))
-        __M_writer('</h2>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
-        __M_writer('\r\n')
-        for field in form:
-            __M_writer('        <div class="form-group">\r\n            <label for=')
-            __M_writer(str(field.name))
-            __M_writer('>')
-            __M_writer(str(field.label))
-            __M_writer(' ')
-            __M_writer(str(field.errors))
-            __M_writer('</label>\r\n            ')
-            __M_writer(str( field ))
-            __M_writer('\r\n        </div>\r\n')
-        __M_writer('\t\t\t\t<hr>\r\n\t\t\t\t<button class="btn btn-success" type="submit">Submit</button>\r\n\t\t\t\t<a class="btn btn-default" href="/homepage/areas">Cancel</a>\r\n\t\t\t\t<a href = "/homepage/areas.delete/')
-        __M_writer(str( area.id ))
-        __M_writer('/" class="btn btn-danger pull-right">Delete</a>\r\n\t</form>\r\n')
+        __M_writer('\r\n\t\t<!--create the table-->\r\n    <div class = "text-left">\r\n      <h2>Return an Item</h2>\r\n    </div>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t    <th>Last Name</th>\r\n\t\t      <th>First Name</th>\r\n\t\t      <th>Email</th>\r\n\t\t      <th>Rental Item</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t      <th>ID</th> \r\n\t\t      <th>Actions</th> \r\n\t\t    </tr>\r\n')
+        for user in returns:
+            __M_writer('\t\t\t\t\t<tr>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[0] ))
+            __M_writer('</td>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[1] ))
+            __M_writer('</td>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[2] ))
+            __M_writer('</td>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[3] ))
+            __M_writer('</td>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[4] ))
+            __M_writer('</td>\r\n\t\t\t            <td> ')
+            __M_writer(str( user[5] ))
+            __M_writer('</td>\r\n\t\t\t\t\t\t<td width="1%" nowrap>\r\n\t\t\t\t\t\t\t<a class="label label-info" href="/homepage/return.edit/')
+            __M_writer(str( user[5] ))
+            __M_writer('/">Return</a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n')
+        __M_writer('\t\t</table>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -171,6 +170,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"66": 35, "164": 24, "71": 38, "136": 5, "76": 41, "130": 5, "142": 9, "152": 11, "82": 34, "163": 21, "150": 9, "151": 11, "88": 34, "153": 17, "154": 18, "27": 0, "156": 20, "157": 20, "94": 31, "159": 20, "160": 20, "161": 20, "162": 21, "155": 19, "100": 31, "165": 27, "166": 27, "106": 37, "172": 166, "46": 1, "112": 37, "51": 7, "158": 20, "118": 40, "56": 29, "124": 40, "61": 32}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/areas.edit.html", "source_encoding": "ascii", "uri": "areas.edit.html"}
+{"line_map": {"65": 44, "164": 33, "70": 47, "135": 3, "75": 50, "141": 9, "81": 43, "163": 33, "148": 9, "149": 24, "150": 25, "87": 43, "152": 26, "153": 27, "154": 27, "27": 0, "156": 28, "93": 40, "158": 29, "159": 30, "160": 30, "161": 31, "151": 26, "99": 40, "162": 31, "165": 37, "129": 3, "105": 46, "171": 165, "45": 1, "111": 46, "157": 29, "50": 5, "155": 28, "117": 49, "55": 38, "123": 49, "60": 41}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/return.html", "source_encoding": "ascii", "uri": "return.html"}
 __M_END_METADATA
 """

@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427496859.667872
+_modified_time = 1427553233.076114
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/overdue.html'
 _template_uri = 'overdue.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['jumbotron', 'content_center', 'content', 'content_left', 'title', 'content_right']
+_exports = ['content_left', 'content_right', 'content_center', 'title', 'jumbotron', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -28,21 +28,21 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        overdue2 = context.get('overdue2', UNDEFINED)
-        overdue1 = context.get('overdue1', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        overdue3 = context.get('overdue3', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        overdue3 = context.get('overdue3', UNDEFINED)
+        overdue2 = context.get('overdue2', UNDEFINED)
+        overdue1 = context.get('overdue1', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -79,11 +79,23 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def jumbotron():
-            return render_jumbotron(context)
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -103,16 +115,40 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Overdue Rentals</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        overdue3 = context.get('overdue3', UNDEFINED)
         overdue2 = context.get('overdue2', UNDEFINED)
         overdue1 = context.get('overdue1', UNDEFINED)
         def content():
             return render_content(context)
-        overdue3 = context.get('overdue3', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<h2>Rented Items Overdue</h2>\r\n\t<div class = "text-right">\r\n      <a href ="/homepage/overdue.email/" class= "btn btn-success">Overdue Emails</a>\r\n  \t</div>\r\n  \t<h3>30 days</h3>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t      <th>First Name</th>\r\n\t\t      <th>Last Name</th>\r\n\t\t      <th>Email</th>\r\n\t\t    </tr>\r\n')
+        __M_writer('\r\n<h2>Rented Items Overdue</h2>\r\n\t<div class = "text-right">\r\n      <a href ="/homepage/overdue.email/" class= "btn btn-success">Batch Email Overdue Rentals</a>\r\n  \t</div>\r\n  \t<h3>30 days</h3>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t      <th>First Name</th>\r\n\t\t      <th>Last Name</th>\r\n\t\t      <th>Email</th>\r\n\t\t    </tr>\r\n')
         for overdue in overdue1:
             __M_writer('\t\t\t\t\t<tr>\r\n\t\t\t            <td> ')
             __M_writer(str( overdue[0] ))
@@ -157,44 +193,8 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Overdue Rentals</title>\r\n  ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "overdue.html", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/overdue.html", "source_encoding": "ascii", "line_map": {"128": 32, "129": 42, "130": 43, "131": 44, "132": 44, "133": 45, "134": 45, "135": 46, "136": 46, "137": 47, "138": 47, "139": 48, "140": 48, "141": 51, "142": 61, "143": 62, "144": 63, "145": 63, "146": 64, "147": 64, "148": 65, "149": 65, "150": 66, "151": 66, "152": 67, "153": 67, "154": 70, "27": 0, "160": 77, "166": 77, "172": 5, "47": 1, "178": 5, "52": 7, "184": 83, "57": 72, "62": 75, "67": 78, "196": 190, "72": 81, "190": 83, "82": 74, "88": 74, "94": 80, "100": 80, "106": 9, "115": 9, "116": 23, "117": 24, "118": 25, "119": 25, "120": 26, "121": 26, "122": 27, "123": 27, "124": 28, "125": 28, "126": 29, "127": 29}}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/overdue.html", "line_map": {"130": 74, "136": 74, "47": 1, "142": 9, "151": 9, "152": 23, "153": 24, "154": 25, "27": 0, "156": 26, "157": 26, "158": 27, "159": 27, "160": 28, "161": 28, "162": 29, "163": 29, "164": 32, "165": 42, "166": 43, "167": 44, "168": 44, "169": 45, "170": 45, "171": 46, "172": 46, "173": 47, "174": 47, "175": 48, "176": 48, "177": 51, "178": 61, "179": 62, "155": 25, "181": 63, "182": 64, "183": 64, "184": 65, "52": 7, "186": 66, "187": 66, "188": 67, "189": 67, "62": 75, "67": 78, "196": 190, "72": 81, "82": 77, "57": 72, "88": 77, "94": 83, "100": 83, "106": 80, "112": 80, "180": 63, "185": 65, "190": 70, "118": 5, "124": 5}, "source_encoding": "ascii", "uri": "overdue.html"}
 __M_END_METADATA
 """
