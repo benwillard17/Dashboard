@@ -7,7 +7,7 @@
 <%block name="content">
 <h2>Items</h2>
 	%for item in items:
-		<div class="item_container">
+		<div class="rental_container">
       <a href="/homepage/itemlist.viewitem/${ item.id }/">
       <div id="item" class="">${ item }</div>
 			<img src="${STATIC_URL}homepage/media/${ item.photo }"/>
@@ -18,7 +18,7 @@
               <div class="col-lg-12">
                 <div class="input-group">
                   <span class="input-group-btn">
-                    <button id="item_${ item.id}" class="btn btn-warning" data-pid="${ item.id}" type="button">Add to Cart</button>
+                    <button id="item_${ item.id}" class="btn btn-warning" data-iid="${ item.id}" type="button">Add to Cart</button>
                   </span>
                 </div><!-- /input-group -->
               </div><!-- /.col-lg-6 -->

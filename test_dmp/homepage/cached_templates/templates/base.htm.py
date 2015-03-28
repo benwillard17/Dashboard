@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427553527.404956
+_modified_time = 1427560751.968303
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_left', 'content_right', 'content_center', 'title', 'meta', 'jumbotron', 'content']
+_exports = ['content_center', 'title', 'content_left', 'jumbotron', 'content_right', 'meta', 'content']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,23 +19,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
-        def meta():
-            return render_meta(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def meta():
+            return render_meta(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -66,7 +66,7 @@ def render_body(context,**pageargs):
         if request.user.is_authenticated():
             __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/return"><span class ="glyphicon glyphicon-transfer"></span>  Returns</a></li>\r\n            <li><a href="/homepage/overdue"><span class ="glyphicon glyphicon-transfer"></span>  Reports</a></li>\r\n')
         else:
-            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n')
+            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n')
         __M_writer('          </ul>\r\n\r\n')
         if request.user.is_authenticated():
             __M_writer('          <ul class="nav navbar-nav navbar-right">\r\n            <li class =""><a id="button_view_shopping_cart" href="/homepage/shoppingcart/"><span class ="glyphicon glyphicon-shopping-cart"></span>  Shopping Cart</a></li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> ')
@@ -112,30 +112,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -160,13 +136,13 @@ def render_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_meta(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def meta():
-            return render_meta(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <meta name="" description="" charset="UTF-8">\r\n  ')
+        __M_writer('\r\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -179,6 +155,30 @@ def render_jumbotron(context,**pageargs):
             return render_jumbotron(context)
         __M_writer = context.writer()
         __M_writer('\r\n              <h1>WELCOME!</h1>\r\n              <p>This is where the description goes.</p>\r\n              <a class = "btn btn-success">Success!</a>\r\n              <a class = "btn btn-primary">Primary</a>\r\n            ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def meta():
+            return render_meta(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <meta name="" description="" charset="UTF-8">\r\n  ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -198,6 +198,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm", "line_map": {"133": 141, "193": 122, "139": 137, "16": 4, "145": 137, "18": 0, "151": 16, "157": 16, "163": 10, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 108, "51": 12, "181": 108, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 68, "69": 69, "70": 71, "71": 73, "72": 74, "73": 77, "74": 77, "75": 85, "76": 86, "77": 98, "78": 105, "83": 113, "84": 119, "89": 124, "90": 130, "95": 134, "187": 122, "100": 138, "105": 142, "106": 148, "107": 156, "108": 156, "109": 156, "115": 133, "169": 10, "121": 133, "127": 141}, "source_encoding": "ascii", "uri": "base.htm"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm", "line_map": {"133": 16, "193": 123, "139": 134, "16": 4, "145": 134, "18": 0, "151": 109, "157": 109, "163": 142, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 10, "51": 12, "181": 10, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 68, "69": 69, "70": 72, "71": 74, "72": 75, "73": 78, "74": 78, "75": 86, "76": 87, "77": 99, "78": 106, "83": 114, "84": 120, "89": 125, "90": 131, "95": 135, "187": 123, "100": 139, "105": 143, "106": 149, "107": 157, "108": 157, "109": 157, "115": 138, "169": 142, "121": 138, "127": 16}, "source_encoding": "ascii", "uri": "base.htm"}
 __M_END_METADATA
 """

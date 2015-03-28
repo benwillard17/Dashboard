@@ -43,7 +43,7 @@ def loginform(request):
         if form.is_valid():
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password'])
             login(request, user)
-            return HttpResponse('<script> window.location.href = "/homepage/accounts" </script>')
+            return HttpResponse('<script> window.location.href = "/homepage/index" </script>')
 
     params['form'] = form
     return templater.render_to_response(request, 'login.loginform.html', params)
