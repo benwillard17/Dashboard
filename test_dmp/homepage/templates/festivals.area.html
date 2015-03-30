@@ -12,20 +12,20 @@
 		<div class = "container-fluid">
         	<div class="row">
         		<div class="col-xs-12 bg-default">
-					<img width= "100%" src="${STATIC_URL}homepage/media/autumn-in-park.jpg"/>
+					<img width= "100%" src="${STATIC_URL}homepage/media/$ {area.photo"/>
 					<h3>Description</h3>
 				</div>
 			</div>
 			<div class="row">
         		<div class="col-xs-12 bg-default">
 				
-        	<h2>Products</h2>
-			%for product in products:
+        	<h2>Sale Items</h2>
+			%for si in saleitem:
 				<div id="festivalproduct" class="item_container col-xs-2">
-						<a href="/homepage/productlist.viewproduct/${ product.id }/">
-							<div id="product" class="">${ product.name }</div>
-							<img width = "100%" src="${STATIC_URL}homepage/media/${ product.photo }"/>
-								<div id="current_price" class="">$${ product.current_price }</div>
+						<a href="/homepage/festivals.item/${ si.id }/">
+							<div id="product" class="">${ si.name }</div>
+							<img width = "100%" src="${STATIC_URL}homepage/media/${ si.photo }"/>
+								<div id="current_price" class="">$${ si.high_price }</div>
 					</a>
 				</div>
 			%endfor

@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427330772.643854
+_modified_time = 1427750609.467913
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html'
 _template_uri = 'festivals.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_left', 'content_center', 'jumbotron', 'content', 'content_right']
+_exports = ['title', 'content', 'content_center', 'jumbotron', 'content_left', 'content_right']
 
 
 def _mako_get_namespace(context, name):
@@ -28,19 +28,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def title():
+            return render_title(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         events = context.get('events', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
+        __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
         
@@ -71,13 +78,41 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
+        def title():
+            return render_title(context)
         __M_writer = context.writer()
-        __M_writer('\r\n')
+        __M_writer('\r\n    <title>CHF: Festivals</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content():
+            return render_content(context)
+        events = context.get('events', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\r\n\t\t<!--create the table-->\r\n    <div class = "text-left">\r\n      <h2>Upcoming Festivals</h2>\r\n    </div>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t      <th>Event Name</th>\r\n\t\t      <th>Start Date</th>\r\n          \t  <th>End Date</th>\r\n\t\t      <th>Venue Name</th>\r\n         \t  <th>City</th>\r\n\t\t      <th>Actions</th>\r\n\t\t    </tr>\r\n')
+        for event in events:
+            __M_writer('\t\t\t\t\t<tr>\r\n            \t\t\t<td> ')
+            __M_writer(str( event.name ))
+            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
+            __M_writer(str( event.start_date ))
+            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
+            __M_writer(str( event.end_date ))
+            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
+            __M_writer(str( event.venue_name ))
+            __M_writer(' </td>\r\n            \t\t\t<td> ')
+            __M_writer(str( event.city ))
+            __M_writer(' </td>\r\n\t\t\t\t\t\t<td width="1%" nowrap>\r\n\t\t\t\t\t\t\t<a class="label label-info" href="/homepage/festivals.view/')
+            __M_writer(str( event.id ))
+            __M_writer('/">View</a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n')
+        __M_writer('\t\t</table>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -107,29 +142,13 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        events = context.get('events', UNDEFINED)
-        def content():
-            return render_content(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
-        __M_writer('\r\n\t\t<!--create the table-->\r\n    <div class = "text-left">\r\n      <h2>Manage Events</h2>\r\n    </div>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t      <th>Event Name</th>\r\n\t\t      <th>Start Date</th>\r\n          <th>End Date</th>\r\n\t\t      <th>Venue Name</th>\r\n          <th>City</th>\r\n\t\t      <th>Actions</th>\r\n\t\t    </tr>\r\n')
-        for event in events:
-            __M_writer('\t\t\t\t\t<tr>\r\n            <td> ')
-            __M_writer(str( event.name ))
-            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
-            __M_writer(str( event.start_date ))
-            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
-            __M_writer(str( event.end_date ))
-            __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
-            __M_writer(str( event.venue_name ))
-            __M_writer(' </td>\r\n            <td> ')
-            __M_writer(str( event.city ))
-            __M_writer(' </td>\r\n\t\t\t\t\t\t<td width="1%" nowrap>\r\n\t\t\t\t\t\t\t<a class="label label-info" href="/homepage/festivals.view/')
-            __M_writer(str( event.id ))
-            __M_writer('/">View</a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n')
-        __M_writer('\t\t</table>\r\n')
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -149,6 +168,6 @@ def render_content_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 25, "129": 25, "130": 27, "131": 27, "68": 44, "150": 144, "74": 37, "138": 43, "80": 37, "86": 40, "127": 24, "132": 31, "27": 0, "92": 40, "122": 22, "144": 43, "98": 34, "104": 34, "63": 41, "43": 1, "110": 5, "48": 32, "117": 5, "118": 19, "119": 20, "120": 21, "121": 21, "58": 38, "123": 22, "124": 23, "125": 23, "126": 24, "53": 35}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html", "source_encoding": "ascii", "uri": "festivals.html"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html", "uri": "festivals.html", "source_encoding": "ascii", "line_map": {"65": 42, "139": 38, "133": 38, "70": 45, "145": 41, "75": 48, "109": 28, "81": 5, "87": 5, "169": 163, "27": 0, "93": 9, "151": 41, "163": 47, "100": 9, "101": 23, "102": 24, "103": 25, "104": 25, "105": 26, "106": 26, "107": 27, "108": 27, "45": 1, "110": 28, "111": 29, "112": 29, "113": 31, "50": 7, "115": 35, "157": 47, "55": 36, "121": 44, "114": 31, "60": 39, "127": 44}}
 __M_END_METADATA
 """

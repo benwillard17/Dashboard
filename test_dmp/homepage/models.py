@@ -53,7 +53,7 @@ class User(AbstractUser):
     emergency_phone = models.TextField(max_length=200, null=True, blank=True)
     emergency_relationship = models.TextField(max_length=200, null=True, blank=True)
     id_photo = models.ForeignKey(Photograph, null=True)
-    organization_name = models.TextField(max_length=200, null=True, blank=True)
+    organization_name = models.TextField(null=True)
 
     def __str__(self):
             return self.user.username
@@ -75,7 +75,7 @@ class Event(models.Model):
     city = models.TextField(max_length=100)
     state = models.TextField(max_length=20)
     zipcode = models.TextField(max_length=20)
-    photo = models.ForeignKey(Photograph, null=True)
+    photo = models.TextField(null=True)
 
     def __str__(self):
         return self.name
@@ -90,7 +90,7 @@ class Area(models.Model):
     description = models.TextField(max_length=1000)
     place_number = models.TextField(max_length=20)
     event = models.ForeignKey(Event, null=True)
-    photo = models.ForeignKey(Photograph, null=True)
+    photo = models.TextField(null=True)
 
     def __str__(self):
         return self.name
@@ -292,6 +292,7 @@ class SaleItem(models.Model):
     high_price = models.DecimalField(max_digits=10, decimal_places=2)
     artisan_name = models.ForeignKey(User)
     area = models.ForeignKey(Area, null=True)
+    photo = models.TextField(null=True)
 
     def __str__(self):
         return self.name

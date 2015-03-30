@@ -159,11 +159,11 @@ for data in [
 
 # populating data for events
 for data in [
-    {'name': 'Freedom Parade', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-1-1', 'end_date': '2015-1-10', 'map_file_name': 'map1.jpg', 'venue_name': 'Colonial Heritage Park', 'address1': '400 July Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999'},
-    {'name': 'Patriotic Festival', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-2-2', 'end_date': '2015-2-10', 'map_file_name': 'map2.jpg', 'venue_name': 'Battlefield Park', 'address1': '501 North Street', 'address2': '', 'city': 'Boston', 'state': 'MA', 'zipcode': '44444'},
-    {'name': 'Colonial Heritage Showcase', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-3-3', 'end_date': '2015-3-10', 'map_file_name': 'map3.jpg', 'venue_name': 'Flaming Island', 'address1': '325 South Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999'},
-    {'name': 'Boston Tea Party', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-4-4', 'end_date': '2015-4-10', 'map_file_name': 'map4.jpg', 'venue_name': 'Mt Rushmore', 'address1': '400 June Ave', 'address2': '', 'city': 'Boston', 'state': 'MA', 'zipcode': '44444'},
-    {'name': 'Battle at Fort Knox', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-5-5', 'end_date': '2015-5-10', 'map_file_name': 'map5.jpg', 'venue_name': 'Grand Canyon', 'address1': '23500 Battlefield Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999'}
+    {'name': 'Freedom Parade', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-1-1', 'end_date': '2015-1-10', 'map_file_name': 'map1.jpg', 'venue_name': 'Colonial Heritage Park', 'address1': '400 July Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999', 'photo': 'event1.jpg'},
+    {'name': 'Patriotic Festival', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-2-2', 'end_date': '2015-2-10', 'map_file_name': 'map2.jpg', 'venue_name': 'Battlefield Park', 'address1': '501 North Street', 'address2': '', 'city': 'Boston', 'state': 'MA', 'zipcode': '44444', 'photo': 'event2.jpg'},
+    {'name': 'Colonial Heritage Showcase', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-3-3', 'end_date': '2015-3-10', 'map_file_name': 'map3.jpg', 'venue_name': 'Flaming Island', 'address1': '325 South Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999', 'photo': 'event3.jpg'},
+    {'name': 'Boston Tea Party', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-4-4', 'end_date': '2015-4-10', 'map_file_name': 'map4.jpg', 'venue_name': 'Mt Rushmore', 'address1': '400 June Ave', 'address2': '', 'city': 'Boston', 'state': 'MA', 'zipcode': '44444', 'photo': 'event4.jpg'},
+    {'name': 'Battle at Fort Knox', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'start_date': '2015-5-5', 'end_date': '2015-5-10', 'map_file_name': 'map5.jpg', 'venue_name': 'Grand Canyon', 'address1': '23500 Battlefield Street', 'address2': '', 'city': 'Pittsburgh', 'state': 'PA', 'zipcode': '99999', 'photo': 'event5.jpg'}
 ]:
 
     d = hmod.Event()
@@ -173,8 +173,16 @@ for data in [
 
 # populating data for area
 for data in [
-    {'name': 'Colonial Bakery', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=1), 'photo': hmod.Photograph.objects.get(id=1)},
-    {'name': 'Colonial Blacksmith', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=2), 'photo': hmod.Photograph.objects.get(id=1)},
+    {'name': 'Bakery', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=1), 'photo': 'area1.jpg'},
+    {'name': 'Blacksmith', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=1), 'photo': 'area2.jpg'},
+    {'name': 'Independence Hall', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=2), 'photo': 'area3.jpg'},
+    {'name': 'White House', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=2), 'photo': 'area4.jpg'},
+    {'name': 'Gettysberg', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=3), 'photo': 'area5.jpg'},
+    {'name': 'Colonial New England', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=3), 'photo': 'area6.jpg'},
+    {'name': 'Tea Shop', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=4), 'photo': 'area7.jpg'},
+    {'name': 'Boston Harbor', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=4), 'photo': 'area7.jpg'},
+    {'name': 'Batlefield', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '1', 'event': hmod.Event.objects.get(id=5), 'photo': 'area8.jpg'},
+    {'name': 'Ship Dock', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'place_number': '2', 'event': hmod.Event.objects.get(id=5), 'photo': 'area9.jpg'},
 ]:
 
     d = hmod.Area()
@@ -185,18 +193,18 @@ for data in [
 # populating data for item
 for data in [
     {'name': 'Mayflower Replica', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '15000.00', 'standard_rental_price': '500.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Musket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '100.00', 'standard_rental_price': '12.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Chair', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '90.00', 'standard_rental_price': '14.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Desk', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '89.00', 'standard_rental_price': '2.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Map', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '87.00', 'standard_rental_price': '3.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Cane', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '67.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Apron', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '56.00', 'standard_rental_price': '4.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Belt', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Jacket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '34.00', 'standard_rental_price': '6.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Uniform', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Hat', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '8.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Marbles', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '46.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
-    {'name': 'Boots', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '9.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item1.jpg'},
+    {'name': 'Musket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '100.00', 'standard_rental_price': '12.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item2.jpg'},
+    {'name': 'Chair', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '90.00', 'standard_rental_price': '14.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item3.jpg'},
+    {'name': 'Desk', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '89.00', 'standard_rental_price': '2.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item4.jpg'},
+    {'name': 'Map', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '87.00', 'standard_rental_price': '3.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item5.jpg'},
+    {'name': 'Cane', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '67.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item6.jpg'},
+    {'name': 'Apron', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '56.00', 'standard_rental_price': '4.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item7.jpg'},
+    {'name': 'Belt', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item8.jpg'},
+    {'name': 'Jacket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '34.00', 'standard_rental_price': '6.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item9.jpg'},
+    {'name': 'Uniform', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '5.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item10.jpg'},
+    {'name': 'Hat', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '45.00', 'standard_rental_price': '8.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item11.jpg'},
+    {'name': 'Marbles', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '46.00', 'standard_rental_price': '7.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item12.jpg'},
+    {'name': 'Boots', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'item_value': '23.00', 'standard_rental_price': '9.00', 'is_rentable': 'True', 'owner': hmod.User.objects.get(id=4), 'photo': 'item13.jpg'},
 ]:
 
     d = hmod.Item()
@@ -365,8 +373,29 @@ for data in [
 
 # populating data for sale item
 for data in [
-    {'name': 'Teapot', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '10', 'high_price': '19', 'artisan_name': hmod.User.objects.get(id=1), 'area': hmod.Area.objects.get(id=1)},
-    {'name': 'Horseshoe', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=1), 'area': hmod.Area.objects.get(id=1)},
+    {'name': 'Bread', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '10', 'high_price': '19', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=1), 'photo': 'si1.jpg'},
+    {'name': 'Flour', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=1), 'photo': 'si2.jpg'},
+    {'name': 'Corn Meal', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=1), 'photo': 'si3.jpg'},
+    {'name': 'Horseshoe', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=3), 'area': hmod.Area.objects.get(id=2), 'photo': 'si4.jpg'},
+    {'name': 'Hammer', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=3), 'area': hmod.Area.objects.get(id=2), 'photo': 'si5.jpg'},
+    {'name': 'Anvil', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=1), 'area': hmod.Area.objects.get(id=2), 'photo': 'si6.jpg'},
+    {'name': 'Declaration of Independence', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '10', 'high_price': '19', 'artisan_name': hmod.User.objects.get(id=1), 'area': hmod.Area.objects.get(id=3), 'photo': 'si7.jpg'},
+    {'name': 'Ink Well', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=2), 'area': hmod.Area.objects.get(id=3), 'photo': 'si8.jpg'},
+    {'name': 'Feather Pen', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=5), 'area': hmod.Area.objects.get(id=3), 'photo': 'si9.jpg'},
+    {'name': 'Presidential Stamp', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=6), 'area': hmod.Area.objects.get(id=4), 'si8': 'si10.jpg'},
+    {'name': 'Wax', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=7), 'area': hmod.Area.objects.get(id=4), 'photo': 'si11.jpg'},
+    {'name': 'Envelopes', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=7), 'area': hmod.Area.objects.get(id=4), 'photo': 'si12.jpg'},
+    {'name': 'Gun Powder', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '10', 'high_price': '19', 'artisan_name': hmod.User.objects.get(id=6), 'area': hmod.Area.objects.get(id=5), 'photo': 'si13.jpg'},
+    {'name': 'Cannon', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '10', 'high_price': '19', 'artisan_name': hmod.User.objects.get(id=5), 'area': hmod.Area.objects.get(id=5), 'photo': 'si14.jpg'},
+    {'name': 'Model House', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=5), 'area': hmod.Area.objects.get(id=6), 'photo': 'si15.jpg'},
+    {'name': 'Wig', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=6), 'photo': 'si16.jpg'},
+    {'name': 'Boston Tea', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=1), 'area': hmod.Area.objects.get(id=7), 'photo': 'si17.jpg'},
+    {'name': 'Tea Cup', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=7), 'photo': 'si18.jpg'},
+    {'name': 'Tax Documents', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=5), 'area': hmod.Area.objects.get(id=8), 'photo': 'si19.jpg'},
+    {'name': 'Jacket', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=5), 'area': hmod.Area.objects.get(id=9), 'photo': 'si20.jpg'},
+    {'name': 'Bayonet', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=9), 'photo': 'si21.jpg'},
+    {'name': 'Barrel of Rum', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=4), 'area': hmod.Area.objects.get(id=10), 'photo': 'si22.jpg'},
+    {'name': 'Model Ship', 'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'low_price': '25', 'high_price': '53', 'artisan_name': hmod.User.objects.get(id=6), 'area': hmod.Area.objects.get(id=10), 'photo': 'si23.jpg'},
 ]:
 
     d = hmod.SaleItem()

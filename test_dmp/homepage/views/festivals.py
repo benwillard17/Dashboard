@@ -37,10 +37,12 @@ def view(request):
     except hmod.Event.DoesNotExist:
         return HttpResponseRedirect('/homepage/festivals/')
 
-    areas = hmod.Area.objects.all()
+    areas = hmod.Area.objects.filter(event=events.id)
+    #saleitem = hmod.SaleItem.objects.filter(id=events.id)
 
     params['events'] = events
     params['areas'] = areas
+    #params['saleitem'] = saleitem
     return templater.render_to_response(request, 'festivals.view.html', params)
 
 @view_function
@@ -53,10 +55,26 @@ def area(request):
     except hmod.Area.DoesNotExist:
         return HttpResponseRedirect('/homepage/festivals')
 
-    areas = hmod.Area.objects.all()
-    products = hmod.Product.objects.all()
+    saleitem = hmod.SaleItem.objects.filter(area=areas.id)
 
     params['areas'] = areas
-    params['products'] = products
+    params['saleitem'] = saleitem
     return templater.render_to_response(request, 'festivals.area.html', params)
+
+    ###########################################################################
+# edits a single product
+@view_function
+def item(request):
+
+    params = {}
+    try:
+        saleitem = hmod.SaleItem.objects.get(id=request.urlparams[0])
+    except hmod.SaleItem.DoesNotExist:
+        return HttpResponseRedirect('/homepage/festivals/')
+
+    #user = hmod.User.objects.filter(artisan_name=user.username)
+
+    params['saleitem'] = saleitem
+    #params['user'] = user
+    return templater.render_to_response(request, 'festivals.item.html', params)
   
