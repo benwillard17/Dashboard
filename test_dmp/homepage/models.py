@@ -296,3 +296,14 @@ class SaleItem(models.Model):
 
     def __str__(self):
         return self.name
+
+class PaymentInfo(models.Model):
+    '''Description: This class is used for working with the rest API 
+    NOTES: has all the fields from the dictionary
+    '''
+    date = models.DateTimeField()
+    description = models.TextField()
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    transaction_id = models.TextField()
+    currency  = models.TextField()
+    customer = models.ForeignKey(User)

@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427571850.338817
+_modified_time = 1427758296.601165
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/shoppingcart.html'
 _template_uri = 'shoppingcart.html'
@@ -28,12 +28,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        pcart = context.get('pcart', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        products = context.get('products', UNDEFINED)
-        items = context.get('items', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        pcart = context.get('pcart', UNDEFINED)
+        items = context.get('items', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        products = context.get('products', UNDEFINED)
         amount = context.get('amount', UNDEFINED)
         icart = context.get('icart', UNDEFINED)
         str = context.get('str', UNDEFINED)
@@ -51,12 +51,12 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        pcart = context.get('pcart', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        products = context.get('products', UNDEFINED)
-        items = context.get('items', UNDEFINED)
         def content():
             return render_content(context)
+        pcart = context.get('pcart', UNDEFINED)
+        items = context.get('items', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        products = context.get('products', UNDEFINED)
         amount = context.get('amount', UNDEFINED)
         icart = context.get('icart', UNDEFINED)
         str = context.get('str', UNDEFINED)

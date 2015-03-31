@@ -72,9 +72,14 @@ def item(request):
     except hmod.SaleItem.DoesNotExist:
         return HttpResponseRedirect('/homepage/festivals/')
 
+    try:
+        user = hmod.User.objects.get(id=saleitem.artisan_name.id)
+    except hmod.SaleItem.DoesNotExist:
+        return HttpResponseRedirect('/homepage/festivals/')
+
     #user = hmod.User.objects.filter(artisan_name=user.username)
 
     params['saleitem'] = saleitem
-    #params['user'] = user
+    params['user'] = user
     return templater.render_to_response(request, 'festivals.item.html', params)
   

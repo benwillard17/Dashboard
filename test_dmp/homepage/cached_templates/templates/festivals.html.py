@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427750609.467913
+_modified_time = 1427754572.653411
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html'
 _template_uri = 'festivals.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['title', 'content', 'content_center', 'jumbotron', 'content_left', 'content_right']
+_exports = ['content_right', 'content', 'title', 'content_left', 'content_center', 'jumbotron']
 
 
 def _mako_get_namespace(context, name):
@@ -28,19 +28,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def title():
-            return render_title(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        events = context.get('events', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
+        events = context.get('events', UNDEFINED)
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -78,13 +78,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_title(context,**pageargs):
+def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def title():
-            return render_title(context)
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Festivals</title>\r\n  ')
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -118,6 +118,30 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Festivals</title>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -142,32 +166,8 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html", "uri": "festivals.html", "source_encoding": "ascii", "line_map": {"65": 42, "139": 38, "133": 38, "70": 45, "145": 41, "75": 48, "109": 28, "81": 5, "87": 5, "169": 163, "27": 0, "93": 9, "151": 41, "163": 47, "100": 9, "101": 23, "102": 24, "103": 25, "104": 25, "105": 26, "106": 26, "107": 27, "108": 27, "45": 1, "110": 28, "111": 29, "112": 29, "113": 31, "50": 7, "115": 35, "157": 47, "55": 36, "121": 44, "114": 31, "60": 39, "127": 44}}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.html", "source_encoding": "ascii", "uri": "festivals.html", "line_map": {"65": 42, "139": 41, "133": 41, "70": 45, "145": 44, "75": 48, "109": 28, "81": 47, "87": 47, "169": 163, "27": 0, "93": 9, "151": 44, "163": 38, "100": 9, "101": 23, "102": 24, "103": 25, "104": 25, "105": 26, "106": 26, "107": 27, "108": 27, "45": 1, "110": 28, "111": 29, "112": 29, "113": 31, "50": 7, "115": 35, "157": 38, "55": 36, "121": 5, "114": 31, "60": 39, "127": 5}}
 __M_END_METADATA
 """

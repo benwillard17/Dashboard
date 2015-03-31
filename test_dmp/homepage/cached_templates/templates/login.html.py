@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427414849.99483
+_modified_time = 1427763607.535229
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/login.html'
 _template_uri = 'login.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content', 'content_left', 'title', 'content_right', 'jumbotron']
+_exports = ['content', 'content_center', 'title', 'content_right', 'content_left', 'jumbotron']
 
 
 def _mako_get_namespace(context, name):
@@ -28,17 +28,16 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def content():
             return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -77,38 +76,23 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content():
+            return render_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n  <div class = "text-left">\r\n    <h2>Hold Up!</h2>\r\n  </div>\r\n    <h4>You need to login to continue.</h4>\r\n    <p>Click "My Account" in the top right corner to login or sign up!</p>\r\n    <div align="center">\r\n    </div>\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         def content_center():
             return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content():
-            return render_content(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n  <div class = "text-left">\r\n    <h2>Whoa there Pardner!</h2>\r\n  </div>\r\n    <h4>You need to login to continue.</h4>\r\n    <p>Click "My Account" in the top right corner to login or sign up!</p>\r\n    <div align="center">\r\n      <img height="200" src="')
-        __M_writer(str( STATIC_URL))
-        __M_writer('homepage/media/cowboy.gif">\r\n    </div>\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -140,6 +124,18 @@ def render_content_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_jumbotron(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -154,6 +150,6 @@ def render_jumbotron(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"65": 22, "131": 27, "70": 25, "137": 27, "55": 8, "143": 3, "80": 24, "149": 3, "86": 24, "27": 0, "92": 10, "99": 10, "100": 17, "101": 17, "107": 21, "45": 1, "113": 21, "50": 4, "155": 149, "119": 6, "60": 19, "125": 6}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/login.html", "source_encoding": "ascii", "uri": "login.html"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/login.html", "uri": "login.html", "line_map": {"64": 21, "97": 23, "59": 18, "69": 24, "133": 20, "103": 6, "145": 3, "139": 3, "44": 1, "109": 6, "79": 10, "27": 0, "49": 4, "115": 26, "85": 10, "54": 8, "151": 145, "121": 26, "91": 23, "127": 20}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

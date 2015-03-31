@@ -29,26 +29,26 @@ def process_request(request):
     pamount = 0
     iamount = 0
 
-    if item_type == "product":
-        for product in hmod.Product.objects.filter(id__in=pcart.keys()):
-            products[str(product.id)] = product
+# if item_type == "product":
+    # loop through products to store in list
+    for product in hmod.Product.objects.filter(id__in=pcart.keys()):
+        products[str(product.id)] = product
 
-        # loop through products to find total amount
-        for key in products:
-            p = products[key]
-            pamount += p.current_price * icart[str(p.id)]
+    # loop through products to find total amount
+    for key in products:
+        p = products[key]
+        amount += p.current_price * pcart[str(p.id)]
 
-    if item_type == "item":
-        # loop through products to store in list
-        for item in hmod.Item.objects.filter(id__in=icart.keys()):
+# elif item_type == "item":
+    for item in hmod.Item.objects.filter(id__in=icart.keys()):
             items[str(item.id)] = item
 
-        # # loop through products to find total amount
-        # for key in items:
-        #     i = items[key]
-        #     iamount += i.standard_rental_price * cart[str(i.id)]
+    # loop through items to find total amount
+    for key in items:
+        i = items[key]
+        iamount += i.standard_rental_price * icart[str(i.id)]    
 
-    amount = iamount + pamount
+    amount += iamount + pamount
 
     # load up params
     params = {
@@ -58,7 +58,6 @@ def process_request(request):
         'items': items,
         'amount': amount,
     }
-
     return templater.render_to_response(request, 'shoppingcart.form.html', params)
 
 
