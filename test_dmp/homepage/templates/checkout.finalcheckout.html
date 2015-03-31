@@ -8,7 +8,7 @@
 
 <%block name="content">
 
-<h2>Shipping Information:  ${request.user.get_full_name()}</h2>
+<h2>Credit Card Information:  ${request.user.get_full_name()}</h2>
 	<form class= "edit_table" method = "POST" >
 
 		%for field in form:
@@ -18,7 +18,7 @@
         </div>
     	%endfor
 				<hr>
-<button id="submit_button" class="btn btn-primary" type="submit">Continue</button>	
+<button id="submit_button" class="btn btn-primary" type="submit">Submit Payment</button>	
 	</form>
 </%block>
 

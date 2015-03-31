@@ -91,12 +91,12 @@ def finalcheckout(request):
     # create the form object
     # fill the form initially with data
     form = UserEditForm(initial={
-        'cardtype': '',
-        'cardname': '',
-        'cardnumber': '',
-        'cvc': '',
-        'expmonth': '',
-        'expyear': ''
+        'cardtype': 'Visa',
+        'cardname': 'Benjamin Willard',
+        'cardnumber': '4732817300654',
+        'cvc': '411',
+        'expmonth': '10',
+        'expyear': '15'
     })
 
     if request.method == 'POST':
@@ -132,13 +132,14 @@ def finalcheckout(request):
                 transaction.currency = resp["Currency"]
                 transaction.customer = hmod.User.objects.get(id=user.id)
                 transaction.save()
+                return HttpResponse('<script> window.location.href = "/homepage/checkout.receipt" </script>')
                 # print(resp.keys())
                 # print(resp["ID"])
 
     # store the form in the parameters
     params['form'] = form
     params['user'] = user
-    return templater.render_to_response(request, 'checkout.receipt.html', params)
+    return templater.render_to_response(request, 'checkout.finalcheckout.html', params)
 
 
 class UserEditForm(forms.Form):
@@ -165,82 +166,3 @@ def receipt(request):
 
     return templater.render_to_response(request, 'receipt.html', params)
 
-
-
-######################################################################
-@view_function
-def charge_credit_card(request):
-    if not request.user.is_authenticated():
-        return redirect('/homepage/login/?next=%s' % request.path)
-    if not request.user.is_staff:
-        return HttpResponseRedirect('/homepage/authentication')
-
-    params = {}
-
-    try:
-        user = hmod.User.objects.get(id=request.urlparams[0])
-    except hmod.User.DoesNotExist:
-        return HttpResponseRedirect('/homepage/accounts/')
-
-    # create the form object
-    # fill the form initially with data
-    form = UserEditForm(initial={
-        'username': user.username,
-        'first_name': user.first_name,
-        'last_name': user.last_name,
-        'email': user.email,
-        'address1': user.address1,
-        'address2': user.address2,
-        'city': user.city,
-        'state': user.state,
-        'zipcode': user.zipcode,
-        'phone_number': user.phone_number,
-    })
-    if request.method == 'POST':
-        form = UserEditForm(request.POST)
-        form.userid = user.id
-        if form.is_valid():
-            # make the changes on the user object
-            user.username = form.cleaned_data['username']
-            user.first_name = form.cleaned_data['first_name']
-            user.last_name = form.cleaned_data['last_name']
-            user.email = form.cleaned_data['email']
-            user.address1 = form.cleaned_data['address1']
-            user.address2 = form.cleaned_data['address2']
-            user.city = form.cleaned_data['city']
-            user.state = form.cleaned_data['state']
-            user.zipcode = form.cleaned_data['zipcode']
-            user.phone_number = form.cleaned_data['phone_number']
-            user.save()
-            return HttpResponseRedirect('/homepage/accounts/')
-
-    # store the form in the parameters
-    params['form'] = form
-    params['user'] = user
-    return templater.render_to_response(request, 'accounts.edit.html', params)
-
-
-class UserEditForm(forms.Form):
-    username = forms.CharField(required=True, min_length=1, max_length=100, label="Username", widget=forms.TextInput(attrs={'placeholder': 'Username', 'class': 'form-control'}))
-    first_name = forms.CharField(required=True, min_length=1, max_length=100, label="First Name", widget=forms.TextInput(attrs={'placeholder': 'First Name', 'class': 'form-control'}))
-    last_name = forms.CharField(required=True, min_length=1, max_length=100, label="Last Name", widget=forms.TextInput(attrs={'placeholder': 'Last Name', 'class': 'form-control'}))
-    email = forms.EmailField(required=True, min_length=1, max_length=100, label="Email", widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control'}))
-    address1 = forms.CharField(required=True, min_length=1, max_length=100, label="Address", widget=forms.TextInput(attrs={'placeholder': 'Address', 'class': 'form-control'}))
-    address2 = forms.CharField(required=False, min_length=1, max_length=100, label="Address 2", widget=forms.TextInput(attrs={'placeholder': 'Address 2', 'class': 'form-control'}))
-    city = forms.CharField(required=True, min_length=1, max_length=100, label="City", widget=forms.TextInput(attrs={'placeholder': 'City', 'class': 'form-control'}))
-    state = forms.CharField(required=True, min_length=1, max_length=100, label="State", widget=forms.TextInput(attrs={'placeholder': 'State', 'class': 'form-control'}))
-    zipcode = forms.CharField(required=True, min_length=1, max_length=100, label="Zip", widget=forms.TextInput(attrs={'placeholder': 'Zip', 'class': 'form-control'}))
-    phone_number = forms.CharField(required=True, min_length=1, max_length=100, label="Phone", widget=forms.TextInput(attrs={'placeholder': 'Phone', 'class': 'form-control'}))
-    # is_staff = forms.BooleanField(required=True, label="Is Staff?", widget=forms.CheckboxInput)
-
-    def clean_username(self):
-        # check if the username is more than 6
-        if len(self.cleaned_data['username']) < 3:
-            raise forms.ValidationError('Please enter a username that is at least 3 characters.')
-
-        # check to see the username already exists
-        user_count = hmod.User.objects.filter(username=self.cleaned_data['username']).exclude(id=self.userid).count()
-        if user_count >= 1:
-            raise forms.ValidationError("This username is already taken")
-
-        return self.cleaned_data['username']

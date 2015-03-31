@@ -1,13 +1,19 @@
 #is this a valid user?
-netid = 'ben17'
-pw = 'password1'
+username = 'ben'
+pw = 'UConn2014'
 from ldap3 import Server, Connection, AUTH_SIMPLE, STRATEGY_SYNC, GET_ALL_INFO
-s = Server('byuldap.byu.edu', port=389, get_info=GET_ALL_INFO)
+s = Server('cheritage.org', port=8889, get_info=GET_ALL_INFO)
 c = Connection(s, client_strategy = STRATEGY_SYNC,
-				user='cn=%s, ou=people, o=ces' % netid, 
+				user=username, firstname=givenName,
 				password=pw, authentication=AUTH_SIMPLE
 				)
 print(c)
+print(c.user)
+print(c.password)
+print(c.firstname)
+
+
+
 #check if that is the right if statement
 # if c != None:
 # 	#now that we know it is a valid user, get the user account from Dango
