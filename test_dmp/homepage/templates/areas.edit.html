@@ -6,9 +6,13 @@
     <title>CHF: Edit Areas</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Edit Areas" description="This allows a manager to edit areas" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit Area: ${area.name}</h2>
+<h1>Edit Area: ${area.name}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		## <table id="edit_form">

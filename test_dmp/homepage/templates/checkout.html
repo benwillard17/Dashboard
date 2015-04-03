@@ -4,11 +4,15 @@
     <title>CHF: Checkout Shipping</title>
   </%block>
 
+<%block name="meta">
+    <meta name="Shipping" description="Customers enter their shipping information here" charset="UTF-8">
+  </%block>
+
 <!--nothing to import-->
 
 <%block name="content">
 
-<h2>Shipping Information:  ${request.user.get_full_name()}</h2>
+<h1>Shipping Information:  ${request.user.get_full_name()}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		%for field in form:

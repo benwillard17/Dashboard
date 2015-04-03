@@ -6,9 +6,13 @@
     <title>CHF: Edit Orders</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Orders Edit" description="Managers can edit orders here" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit Order: ${ order.tracking_number }</h2>
+<h1>Edit Order: ${ order.tracking_number }</h1>
   <form class= "edit_table" method = "POST" >
 
     ## <table id="edit_form">

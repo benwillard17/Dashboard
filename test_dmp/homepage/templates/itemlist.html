@@ -4,8 +4,12 @@
     <title>CHF: Items</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Items" description="Customers can view rental items" charset="UTF-8">
+  </%block>
+
 <%block name="content">
-<h2>Items</h2>
+<h1>Items</h1>
 	%for item in items:
 		<div class="rental_container">
       <a href="/homepage/itemlist.viewitem/${ item.id }/">

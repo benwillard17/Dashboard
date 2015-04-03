@@ -46,6 +46,11 @@ ul.errorlist > li {
   margin-bottom: 20px;
 }
 
+h1{
+  border-bottom: 1px solid #eee;
+  font-size: 22px;
+}
+
 h2{
   border-bottom: 1px solid #eee;
 }
@@ -82,4 +87,8 @@ a:active {
 
 #festivalproduct {
   display: inline-block;
+}
+
+#link {
+  font-size: 24px
 }

@@ -4,11 +4,15 @@
     <title>CHF: Edit Accounts</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Edit Accounts" description="This is for editing accounts" charset="UTF-8">
+  </%block>
+
 <!--nothing to import-->
 
 <%block name="content">
 
-<h2>Edit User: ${request.user.get_full_name()}</h2>
+<h1>Edit User: ${request.user.get_full_name()}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		## <table id="edit_form">

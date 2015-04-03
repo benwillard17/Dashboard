@@ -4,8 +4,12 @@
     <title>CHF: Products</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Products" description="Management page for products" charset="UTF-8">
+  </%block>
+
 <%block name="content">
-<h2>Products</h2>
+<h1>Products</h1>
 	%for product in products:
 		<div class="item_container">
       <a href="/homepage/productlist.viewproduct/${ product.id }/">

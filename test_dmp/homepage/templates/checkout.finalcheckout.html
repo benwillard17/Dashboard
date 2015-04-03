@@ -1,14 +1,18 @@
 <%inherit file="base.htm"/>
 
 <%block name="title">
-    <title>CHF: Checkout Shipping</title>
+    <title>CHF: Checkout Billing</title>
+  </%block>
+
+  <%block name="meta">
+    <meta name="Checkout" description="Has a customer enter their billing information" charset="UTF-8">
   </%block>
 
 <!--nothing to import-->
 
 <%block name="content">
 
-<h2>Credit Card Information:  ${request.user.get_full_name()}</h2>
+<h1>Credit Card Information:  ${request.user.get_full_name()}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		%for field in form:

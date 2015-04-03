@@ -6,9 +6,13 @@
     <title>CHF: Edit Events</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Edit Events" description="Managers can edit event information" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit Event: ${event.name}</h2>
+<h1>Edit Event: ${event.name}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		## <table id="edit_form">

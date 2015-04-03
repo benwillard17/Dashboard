@@ -6,9 +6,13 @@
     <title>CHF: Edit Users</title>
   </%block>
 
+<%block name="meta">
+    <meta name="Users Edit" description="Managers can edit users here" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit User: ${user.first_name} ${user.last_name}</h2>
+<h1>Edit User: ${user.first_name} ${user.last_name}</h1>
 	<form class= "edit_table" method = "POST" >
 
 		## <table id="edit_form">

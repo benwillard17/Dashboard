@@ -6,9 +6,13 @@
     <title>CHF: Edit Rentals</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Rentals Edit" description="Managers can edit rentals here" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit Rental for: ${ rental.user }</h2>
+<h1>Edit Rental for: ${ rental.user }</h1>
   <form class= "edit_table" method = "POST" >
 
     ## <table id="edit_form">

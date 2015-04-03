@@ -6,9 +6,13 @@
     <title>CHF: Edit Products</title>
   </%block>
 
+  <%block name="meta">
+    <meta name="Products Edit" description="Managers can edit products here" charset="UTF-8">
+  </%block>
+
 <%block name="content">
 
-<h2>Edit Product: ${ product.category }</h2>
+<h1>Edit Product: ${ product.category }</h1>
   <form class= "edit_table" method = "POST" >
 
     ## <table id="edit_form">

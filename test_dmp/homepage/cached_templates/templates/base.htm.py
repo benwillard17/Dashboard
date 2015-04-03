@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427560751.968303
+_modified_time = 1428104231.514244
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'title', 'content_left', 'jumbotron', 'content_right', 'meta', 'content']
+_exports = ['meta', 'content_left', 'content_center', 'content_right', 'content', 'jumbotron', 'title']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,23 +19,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def title():
-            return render_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def content_center():
             return render_content_center(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
         def meta():
             return render_meta(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -64,9 +64,9 @@ def render_body(context,**pageargs):
         __M_writer('\r\n\r\n  </head>\r\n  <body>\r\n\r\n')
         __M_writer('    <header class="navbar navbar-inverse navbar-fixed-top">\r\n      <div class="container-fluid">\r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class="navbar-header">\r\n          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\r\n            <span class="sr-only">Toggle navigation</span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n          </button>\r\n          <a class="navbar-brand" href="/homepage/index">CHF</a>\r\n        </div>\r\n\r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\r\n          <ul class="nav navbar-nav">\r\n')
         if request.user.is_authenticated():
-            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/return"><span class ="glyphicon glyphicon-transfer"></span>  Returns</a></li>\r\n            <li><a href="/homepage/overdue"><span class ="glyphicon glyphicon-transfer"></span>  Reports</a></li>\r\n')
+            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/return"><span class ="glyphicon glyphicon-transfer"></span>  Returns</a></li>\r\n            <li><a href="/homepage/overdue"><span class ="glyphicon glyphicon-transfer"></span>  Reports</a></li>\r\n            <li><a href="/homepage/festivals"><span class ="glyphicon glyphicon-transfer"></span>  Festivals</a></li>\r\n            <a href="/homepage/links/">Links</a>\r\n')
         else:
-            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n')
+            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/festivals"><span class ="glyphicon glyphicon-transfer"></span>  Festivals</a></li>\r\n\r\n')
         __M_writer('          </ul>\r\n\r\n')
         if request.user.is_authenticated():
             __M_writer('          <ul class="nav navbar-nav navbar-right">\r\n            <li class =""><a id="button_view_shopping_cart" href="/homepage/shoppingcart/"><span class ="glyphicon glyphicon-shopping-cart"></span>  Shopping Cart</a></li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> ')
@@ -103,70 +103,10 @@ def render_body(context,**pageargs):
         
 
         __M_writer('\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n')
-        __M_writer('    <footer class = "navbar navbar-inverse navbar-fixed-bottom">\r\n      <div class="container">\r\n        <p class = "navbar-text pull-left">&copy; 2015 Colonial Heritage Foundation</p>\r\n        <p class = "navbar-text pull-right">Terms of Use | Privacy</p>\r\n      </div>\r\n    </footer>\r\n\r\n')
+        __M_writer('    <footer class = "navbar navbar-inverse navbar-fixed-bottom">\r\n      <div class="container">\r\n        <p class = "navbar-text pull-left">&copy; 2015 Colonial Heritage Foundation</p>\r\n        \r\n        <p class = "navbar-text pull-right"><a href="/homepage/links/">Links</a> | Terms of Use | Privacy</p>\r\n      </div>\r\n    </footer>\r\n\r\n')
         __M_writer('    ')
         __M_writer(str( static_renderer.get_template_js(request, context)  ))
         __M_writer('\r\n\r\n  </body>\r\n</html>')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_center(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n    <title>Colonial Heritage Foundation</title>\r\n  ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              <h1>WELCOME!</h1>\r\n              <p>This is where the description goes.</p>\r\n              <a class = "btn btn-success">Success!</a>\r\n              <a class = "btn btn-primary">Primary</a>\r\n            ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -184,6 +124,42 @@ def render_meta(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -196,8 +172,32 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              <h1>WELCOME!</h1>\r\n              <p>This is where the description goes.</p>\r\n              <a class = "btn btn-success">Success!</a>\r\n              <a class = "btn btn-primary">Primary</a>\r\n            ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>Colonial Heritage Foundation</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm", "line_map": {"133": 16, "193": 123, "139": 134, "16": 4, "145": 134, "18": 0, "151": 109, "157": 109, "163": 142, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 10, "51": 12, "181": 10, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 68, "69": 69, "70": 72, "71": 74, "72": 75, "73": 78, "74": 78, "75": 86, "76": 87, "77": 99, "78": 106, "83": 114, "84": 120, "89": 125, "90": 131, "95": 135, "187": 123, "100": 139, "105": 143, "106": 149, "107": 157, "108": 157, "109": 157, "115": 138, "169": 142, "121": 138, "127": 16}, "source_encoding": "ascii", "uri": "base.htm"}
+{"uri": "base.htm", "line_map": {"133": 138, "193": 16, "139": 142, "16": 4, "145": 142, "18": 0, "151": 146, "157": 146, "163": 127, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 113, "51": 12, "181": 113, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 70, "69": 71, "70": 76, "71": 78, "72": 79, "73": 82, "74": 82, "75": 90, "76": 91, "77": 103, "78": 110, "83": 118, "84": 124, "89": 129, "90": 135, "95": 139, "187": 16, "100": 143, "105": 147, "106": 153, "107": 162, "108": 162, "109": 162, "115": 10, "169": 127, "121": 10, "127": 138}, "source_encoding": "ascii", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm"}
 __M_END_METADATA
 """
