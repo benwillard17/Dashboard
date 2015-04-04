@@ -41,7 +41,7 @@ user.username = 'super'
 user.set_password('asdf')
 user.first_name = 'Super'
 user.last_name = 'User'
-user.email = 'super@cheritage.org'
+user.email = 'benwillard17@gmail.com'
 user.address1 = '4387 South 1400 East'
 user.address2 = ''
 user.city = 'Sandy'
@@ -146,7 +146,7 @@ group.user_set.add(user)
 # populating data for users
 for data in [
     {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'True', 'username': 'CHF', 'set_password': 'asdf', 'first_name': 'Colonial', 'last_name': 'Heritage', 'email': 'kbj17.me@gmail.com', 'address': '1234 North Center Street', 'city': 'Lehi', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4443334444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
-    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'ben17', 'set_password': 'asdf', 'first_name': 'Ben', 'last_name': 'Willard', 'email': 'benwillard17@gmail.com', 'address': 'North Circle', 'city': 'Provo', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4445554444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
+    {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'ben17', 'set_password': 'asdf', 'first_name': 'Ben', 'last_name': 'Willard', 'email': 'kbj17.me@gmail.com', 'address': 'North Circle', 'city': 'Provo', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4445554444', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
     {'is_staff': 'True', 'is_active': 'True', 'is_superuser': 'False', 'username': 'taylor', 'set_password': 'asdf', 'first_name': 'Taylor', 'last_name': 'Curtis', 'email': 'kbj17.me@gmail.com', 'address': 'GW Boulevard', 'city': 'Salt Lake City', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4446662222', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
     {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'john', 'set_password': 'asdf', 'first_name': 'John', 'last_name': 'Hulet', 'email': 'kbj17.me@gmail.com', 'address': 'Frosty Lane', 'city': 'Antartica', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4441115555', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Bob', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
     {'is_staff': 'False', 'is_active': 'True', 'is_superuser': 'False', 'username': 'landon', 'set_password': 'asdf', 'first_name': 'Landon', 'last_name': 'Meservy', 'email': 'kbj17.me@gmail.com', 'address': 'Arctic Circle Drive', 'city': 'Ancestry', 'state': 'Utah', 'zipcode': '84604', 'phone_number': '4440009999', 'security_question': 'Am I who I say I am?', 'security_answer': 'Yes', 'emergency_contact': 'Fred', 'emergency_phone': '911', 'emergency_relationship': 'Doctor'},
