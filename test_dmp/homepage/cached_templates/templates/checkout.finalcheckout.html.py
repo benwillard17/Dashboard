@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427824487.412591
+_modified_time = 1428156290.188778
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/checkout.finalcheckout.html'
 _template_uri = 'checkout.finalcheckout.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'content_right', 'content_center', 'jumbotron', 'title', 'content_left']
+_exports = ['title', 'content', 'content_right', 'content_center', 'content_left', 'jumbotron', 'meta']
 
 
 def _mako_get_namespace(context, name):
@@ -28,13 +28,8 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
         def content_center():
             return render_content_center(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
         request = context.get('request', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
@@ -42,10 +37,22 @@ def render_body(context,**pageargs):
             return render_title(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        form = context.get('form', UNDEFINED)
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def meta():
+            return render_meta(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
             context['self'].title(**pageargs)
+        
+
+        __M_writer('\r\n\r\n  ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'meta'):
+            context['self'].meta(**pageargs)
         
 
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
@@ -79,17 +86,29 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Checkout Billing</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def content():
             return render_content(context)
         form = context.get('form', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n<h2>Credit Card Information:  ')
+        __M_writer('\r\n\r\n<h1>Credit Card Information:  ')
         __M_writer(str(request.user.get_full_name()))
-        __M_writer('</h2>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
+        __M_writer('</h1>\r\n\t<form class= "edit_table" method = "POST" >\r\n\r\n')
         for field in form:
             __M_writer('        <div class="form-group">\r\n            <label for = ')
             __M_writer(str(field.name))
@@ -130,30 +149,6 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_title(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def title():
-            return render_title(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Checkout Shipping</title>\r\n  ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -166,8 +161,32 @@ def render_content_left(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def meta():
+            return render_meta(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <meta name="Checkout" description="Has a customer enter their billing information" charset="UTF-8">\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/checkout.finalcheckout.html", "line_map": {"66": 29, "115": 34, "133": 25, "71": 32, "139": 25, "76": 35, "145": 3, "82": 9, "163": 28, "151": 3, "90": 9, "27": 0, "92": 11, "93": 14, "94": 15, "95": 16, "96": 16, "97": 16, "98": 16, "99": 16, "100": 16, "101": 17, "102": 17, "103": 20, "169": 163, "109": 34, "46": 1, "157": 28, "91": 11, "51": 5, "56": 23, "121": 31, "61": 26, "127": 31}, "uri": "checkout.finalcheckout.html", "source_encoding": "ascii"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/checkout.finalcheckout.html", "uri": "checkout.finalcheckout.html", "line_map": {"128": 38, "68": 30, "182": 7, "134": 38, "73": 33, "140": 35, "78": 36, "146": 35, "83": 39, "152": 32, "89": 3, "27": 0, "122": 24, "158": 32, "95": 3, "48": 1, "164": 29, "101": 13, "188": 182, "170": 29, "176": 7, "109": 13, "110": 15, "111": 15, "112": 18, "113": 19, "114": 20, "115": 20, "116": 20, "53": 5, "118": 20, "119": 20, "120": 21, "121": 21, "58": 9, "117": 20, "63": 27}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

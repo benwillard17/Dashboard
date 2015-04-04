@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428104231.514244
+_modified_time = 1428167934.849605
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['meta', 'content_left', 'content_center', 'content_right', 'content', 'jumbotron', 'title']
+_exports = ['jumbotron', 'meta', 'content_center', 'content_right', 'content', 'title', 'content_left']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,23 +19,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def meta():
+            return render_meta(context._locals(__M_locals))
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
-        def meta():
-            return render_meta(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -64,7 +64,7 @@ def render_body(context,**pageargs):
         __M_writer('\r\n\r\n  </head>\r\n  <body>\r\n\r\n')
         __M_writer('    <header class="navbar navbar-inverse navbar-fixed-top">\r\n      <div class="container-fluid">\r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class="navbar-header">\r\n          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\r\n            <span class="sr-only">Toggle navigation</span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n          </button>\r\n          <a class="navbar-brand" href="/homepage/index">CHF</a>\r\n        </div>\r\n\r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\r\n          <ul class="nav navbar-nav">\r\n')
         if request.user.is_authenticated():
-            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/return"><span class ="glyphicon glyphicon-transfer"></span>  Returns</a></li>\r\n            <li><a href="/homepage/overdue"><span class ="glyphicon glyphicon-transfer"></span>  Reports</a></li>\r\n            <li><a href="/homepage/festivals"><span class ="glyphicon glyphicon-transfer"></span>  Festivals</a></li>\r\n            <a href="/homepage/links/">Links</a>\r\n')
+            __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/return"><span class ="glyphicon glyphicon-transfer"></span>  Returns</a></li>\r\n            <li><a href="/homepage/overdue"><span class ="glyphicon glyphicon-transfer"></span>  Reports</a></li>\r\n            <li><a href="/homepage/festivals"><span class ="glyphicon glyphicon-transfer"></span>  Festivals</a></li>\r\n')
         else:
             __M_writer('            <li><a href="/homepage/productlist"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li><a href="/homepage/itemlist"><span class ="glyphicon glyphicon-list"></span>  Rentals</a></li>\r\n            <li><a href="/homepage/festivals"><span class ="glyphicon glyphicon-transfer"></span>  Festivals</a></li>\r\n\r\n')
         __M_writer('          </ul>\r\n\r\n')
@@ -112,6 +112,18 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              <h1>WELCOME!</h1>\r\n              <p>This is where the description goes.</p>\r\n              <a class = "btn btn-success">Success!</a>\r\n              <a class = "btn btn-primary">Primary</a>\r\n            ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_meta(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -119,18 +131,6 @@ def render_meta(context,**pageargs):
             return render_meta(context)
         __M_writer = context.writer()
         __M_writer('\r\n    <meta name="" description="" charset="UTF-8">\r\n  ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -172,18 +172,6 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              <h1>WELCOME!</h1>\r\n              <p>This is where the description goes.</p>\r\n              <a class = "btn btn-success">Success!</a>\r\n              <a class = "btn btn-primary">Primary</a>\r\n            ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -196,8 +184,20 @@ def render_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"uri": "base.htm", "line_map": {"133": 138, "193": 16, "139": 142, "16": 4, "145": 142, "18": 0, "151": 146, "157": 146, "163": 127, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 113, "51": 12, "181": 113, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 70, "69": 71, "70": 76, "71": 78, "72": 79, "73": 82, "74": 82, "75": 90, "76": 91, "77": 103, "78": 110, "83": 118, "84": 124, "89": 129, "90": 135, "95": 139, "187": 16, "100": 143, "105": 147, "106": 153, "107": 162, "108": 162, "109": 162, "115": 10, "169": 127, "121": 10, "127": 138}, "source_encoding": "ascii", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm"}
+{"line_map": {"133": 10, "193": 137, "139": 141, "16": 4, "145": 141, "18": 0, "151": 145, "157": 145, "163": 126, "40": 2, "41": 4, "42": 5, "199": 193, "46": 5, "175": 16, "51": 12, "181": 16, "56": 18, "57": 22, "58": 31, "59": 31, "60": 34, "61": 34, "62": 41, "63": 41, "64": 41, "65": 47, "66": 63, "67": 64, "68": 69, "69": 70, "70": 75, "71": 77, "72": 78, "73": 81, "74": 81, "75": 89, "76": 90, "77": 102, "78": 109, "83": 117, "84": 123, "89": 128, "90": 134, "95": 138, "187": 137, "100": 142, "105": 146, "106": 152, "107": 161, "108": 161, "109": 161, "115": 112, "169": 126, "121": 112, "127": 10}, "uri": "base.htm", "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/base.htm", "source_encoding": "ascii"}
 __M_END_METADATA
 """

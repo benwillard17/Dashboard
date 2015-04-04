@@ -142,8 +142,8 @@ def email(request):
           <body>
             <h1>Dear ''' + user[2] + " " + user[3] + '''!</h1>
             <hr>
-            <p></p>
-            <p></p>
+            <p>This is to remind you that the ''' + user[0] + ''' is overdue! Please return the item as soon as possible to avoid more late fees.</p>
+            <p>Thanks!</p>
             <br>
             <br>
             <br>

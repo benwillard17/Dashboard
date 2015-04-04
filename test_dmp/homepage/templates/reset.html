@@ -1,1 +1,27 @@
-#grab the login form and delete the first one and it's ready to go
+<%inherit file="base.htm" />
+
+<%block name="title">
+    <title>CHF: Login</title>
+  </%block>
+
+  <%block name="meta">
+    <meta name="Login" description="Users can log in here" charset="UTF-8">
+  </%block>
+
+<%block name="content">
+
+  <div id= "loginform_container" align="center">
+    <form id= "loginform" method ="POST" action="/homepage/reset/">
+      <table>
+        ${ form }
+      </table>
+      <div id="submit_button_container" align="center">
+        <button id="submit_button" class="btn btn-warning" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</%block>
+
+<%block name="jumbotron">
+</%block>

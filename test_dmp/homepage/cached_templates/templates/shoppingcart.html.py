@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427758296.601165
+_modified_time = 1428156246.141116
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/shoppingcart.html'
 _template_uri = 'shoppingcart.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content']
+_exports = ['content', 'title', 'meta']
 
 
 def _mako_get_namespace(context, name):
@@ -28,16 +28,30 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        products = context.get('products', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        pcart = context.get('pcart', UNDEFINED)
-        items = context.get('items', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        products = context.get('products', UNDEFINED)
-        amount = context.get('amount', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
         icart = context.get('icart', UNDEFINED)
         str = context.get('str', UNDEFINED)
+        pcart = context.get('pcart', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        items = context.get('items', UNDEFINED)
+        amount = context.get('amount', UNDEFINED)
+        def meta():
+            return render_meta(context._locals(__M_locals))
         __M_writer = context.writer()
+        __M_writer('\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
+            context['self'].title(**pageargs)
+        
+
+        __M_writer('\r\n\r\n  ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'meta'):
+            context['self'].meta(**pageargs)
+        
+
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
             context['self'].content(**pageargs)
@@ -51,15 +65,15 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        products = context.get('products', UNDEFINED)
         def content():
             return render_content(context)
-        pcart = context.get('pcart', UNDEFINED)
-        items = context.get('items', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        products = context.get('products', UNDEFINED)
-        amount = context.get('amount', UNDEFINED)
         icart = context.get('icart', UNDEFINED)
         str = context.get('str', UNDEFINED)
+        pcart = context.get('pcart', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        items = context.get('items', UNDEFINED)
+        amount = context.get('amount', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n  <form id= "loginform" method ="POST" action="/homepage/login.loginform/">\r\n    <h2>Products</h2>\r\n    <table id="manage_table_shopping" class = "table table-striped table-bordered">\r\n      <thead>\r\n        <tr>\r\n          <th>Photo</th>\r\n          <th>Product Name</th>\r\n          <th>Quantity</th>\r\n          <th>Total</th>\r\n          <th>Actions</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n')
         for key in products:
@@ -107,8 +121,32 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Shopping Cart</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def meta():
+            return render_meta(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <meta name="Shopping Cart" description="Shopping Cart" charset="UTF-8">\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 3, "65": 17, "66": 18, "67": 18, "69": 18, "70": 20, "71": 20, "72": 20, "73": 20, "74": 21, "75": 21, "76": 22, "77": 22, "78": 23, "79": 23, "80": 25, "81": 25, "82": 25, "83": 25, "84": 29, "85": 42, "86": 43, "87": 43, "89": 43, "90": 45, "27": 0, "92": 45, "93": 45, "94": 46, "95": 46, "96": 47, "97": 47, "98": 49, "91": 45, "100": 49, "101": 49, "102": 53, "103": 57, "104": 57, "41": 1, "110": 104, "99": 49, "51": 3}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/shoppingcart.html", "source_encoding": "ascii", "uri": "shoppingcart.html"}
+{"filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/shoppingcart.html", "uri": "shoppingcart.html", "line_map": {"130": 3, "136": 7, "142": 7, "148": 142, "27": 0, "45": 1, "50": 5, "55": 9, "65": 11, "78": 11, "79": 25, "80": 26, "81": 26, "83": 26, "84": 28, "85": 28, "86": 28, "87": 28, "88": 29, "89": 29, "90": 30, "91": 30, "92": 31, "93": 31, "94": 33, "95": 33, "96": 33, "97": 33, "98": 37, "99": 50, "100": 51, "101": 51, "103": 51, "104": 53, "105": 53, "106": 53, "107": 53, "108": 54, "109": 54, "110": 55, "111": 55, "112": 57, "113": 57, "114": 57, "115": 57, "116": 61, "117": 65, "118": 65, "124": 3}, "source_encoding": "ascii"}
 __M_END_METADATA
 """

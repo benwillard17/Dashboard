@@ -1,0 +1,29 @@
+ 
+ 
+ from django.core.mail import EmailMultiAlternatives
+
+ for customer in overdue_email:
+        subject, from_email, to = 'NOTICE: Overdue Item', settings.EMAIL_HOST_USER, customer[4]
+        text_content = 'This is an important message.'
+        html_content = '''
+          <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+          <head>
+          <meta name="viewport" content="width=device-width" />
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          </head>
+          <body>
+            <h1>Dear ''' + customer[2] + " " + customer[3] + '''!</h1>
+            <hr>
+            <p>Thank you for your recent purchase!  We appreciate your business.</p>
+            <p>Your order will be sent within 5 business days.</p>
+            <br>
+            <br>
+            <br>
+            <p>Colonial Heritage Team</p>
+            <a href="http://www.cheritage.org/"><p>Colonial Heritage Foundation</p></a>
+          </html>
+          '''
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()

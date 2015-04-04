@@ -12,12 +12,13 @@
 
 <%block name="content">
 	<div id="festivalcontainer">
-		<h1>Area </h1>
+		<h1>Area: ${ areas.name } </h1>
 		<div class = "container-fluid">
         	<div class="row">
         		<div class="col-xs-12 bg-default">
-					<img width= "100%" src="${STATIC_URL}homepage/media/$ {area.photo}"/>
+					<img width= "100%" src="${STATIC_URL}homepage/media/${ areas.photo }"/>
 					<h3>Description</h3>
+					<p>${ areas.description }</p>
 				</div>
 			</div>
 			<div class="row">

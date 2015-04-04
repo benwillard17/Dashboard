@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427755427.68397
+_modified_time = 1428174803.890923
 _enable_loop = True
 _template_filename = 'C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.item.html'
 _template_uri = 'festivals.item.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['jumbotron', 'content_left', 'content_right', 'content', 'title', 'content_center']
+_exports = ['jumbotron', 'content_left', 'content', 'content_right', 'meta', 'content_center', 'title']
 
 
 def _mako_get_namespace(context, name):
@@ -30,23 +30,30 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
         saleitem = context.get('saleitem', UNDEFINED)
+        user = context.get('user', UNDEFINED)
+        def meta():
+            return render_meta(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
             context['self'].title(**pageargs)
+        
+
+        __M_writer('\r\n\r\n  ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'meta'):
+            context['self'].meta(**pageargs)
         
 
         __M_writer('\r\n\r\n')
@@ -103,30 +110,18 @@ def render_content_left(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        saleitem = context.get('saleitem', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         def content():
             return render_content(context)
-        user = context.get('user', UNDEFINED)
+        saleitem = context.get('saleitem', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n<div class = "text-left">\r\n      <h2>Sale Item Detail - ')
+        __M_writer('\r\n<div class = "text-left">\r\n      <h1>Sale Item Detail - ')
         __M_writer(str( saleitem.name ))
-        __M_writer('</h2>\r\n    </div>\r\n\r\n    <div align="center">\r\n    \t<img height="450" src="')
+        __M_writer('</h1>\r\n    </div>\r\n\r\n    <div align="center">\r\n    \t<img height="450" src="')
         __M_writer(str(STATIC_URL))
         __M_writer('homepage/media/')
         __M_writer(str( saleitem.photo ))
@@ -146,13 +141,25 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_title(context,**pageargs):
+def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def title():
-            return render_title(context)
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <title>CHF: Sale Item Detail</title>\r\n  ')
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def meta():
+            return render_meta(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <meta name="Sale Items" description="Customers can view info about sale items here" charset="UTF-8">\r\n  ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -170,8 +177,20 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_title(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def title():
+            return render_title(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n    <title>CHF: Sale Item Detail</title>\r\n  ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 12, "129": 12, "130": 16, "67": 36, "132": 16, "133": 16, "134": 26, "135": 26, "72": 39, "137": 27, "138": 28, "139": 28, "140": 29, "141": 29, "142": 29, "143": 29, "82": 7, "131": 16, "149": 3, "88": 7, "27": 0, "94": 35, "161": 38, "155": 3, "100": 35, "167": 38, "106": 41, "173": 167, "47": 1, "112": 41, "136": 27, "52": 5, "118": 10, "57": 8, "62": 33, "127": 10}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.item.html", "source_encoding": "ascii", "uri": "festivals.item.html"}
+{"uri": "festivals.item.html", "line_map": {"64": 12, "128": 20, "130": 30, "131": 31, "132": 31, "69": 37, "134": 32, "129": 30, "136": 33, "137": 33, "74": 40, "138": 33, "79": 43, "144": 45, "150": 45, "89": 11, "27": 0, "135": 33, "186": 3, "95": 11, "133": 32, "162": 7, "59": 9, "101": 39, "49": 1, "168": 42, "156": 7, "107": 39, "174": 42, "113": 14, "192": 186, "180": 3, "54": 5, "122": 14, "123": 16, "124": 16, "125": 20, "126": 20, "127": 20}, "filename": "C:\\Users\\benwillard17\\Documents\\GitHub\\Sprint3\\test_dmp\\homepage\\templates/festivals.item.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """
