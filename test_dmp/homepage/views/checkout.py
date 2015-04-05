@@ -12,6 +12,9 @@ from django.contrib.auth import authenticate, login, logout
 import random
 import requests
 from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
+
 
 API_URL = 'http://ithers.cs.byu.edu/iscore/api/v1/charges'
 API_KEY = 'bd4c3e68deac00a9d76b8646e02eb328'
@@ -198,93 +201,12 @@ def receipt(request):
         'amount': amount,
     }
 
-
     useremail = request.user.email
 
+    emailbody = templater.render(request, 'checkout.email.receipt.html', params) 
 
-
+    send_mail("Receipt of Purchase", emailbody, settings.EMAIL_HOST_USER, [useremail], html_message=emailbody, fail_silently=False)
     # send_mail('Receipt of Purchase', 'Thank you for your recent purchase.', settings.EMAIL_HOST_USER, [request.user.email], fail_silently=False)
-
-    subject, from_email, to = 'Confirmation of Purchase', settings.EMAIL_HOST_USER, useremail
-    text_content = 'This is an important message.'
-    html_content = '''
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-      <html xmlns="http://www.w3.org/1999/xhtml">
-      <head>
-      <meta name="viewport" content="width=device-width" />
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-      </head>
-      <body>
-        <hr>
-        <p>Thank you for your recent purchase!  We appreciate your business.</p>
-        <p>Your order will be sent within 5 business days.</p>
-        <br>
-        <br>
-        <div class = "text-left">
-      <h1>Thank You!</h1>
-    </div>
-    <p>Your purchase has been recorded and will be shipping soon!</p>
-    <p>You have been sent an email with details of this transaction.</p>
-
-    <form id= "loginform" method ="POST" action="/homepage/login.loginform/">
-  <h1>Shopping Cart</h1>
-    <table id="manage_table_shopping" class = "table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Product Name</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%for key in products: 
-        <% p = products[key] %>
-          <tr>
-            <td><img class="text-center" height="75" src="${STATIC_URL}homepage/media/${ p.photo }" alt=""></td>
-            <td>${ p.name }</td>
-            <td>${ pcart[str(p.id)] }</td>
-            <td>$ ${ p.current_price * pcart[str(p.id)] }</td>
-          </tr>
-        %endfor
-      </tbody>
-  </table>
-  <table id="manage_table_shopping" class = "table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th>Photo</th>
-          <th>Item Name</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        %for key in items:
-        <% i = items[key] %>
-          <tr>
-            <td><img class="text-center" height="75" src="${STATIC_URL}homepage/media/${ i.photo }" alt=""></td>
-            <td>${ i.name }</td>
-            <td>$ ${ i.standard_rental_price * icart[str(i.id)] }</td>
-          </tr>
-        %endfor
-      </tbody>
-  </table>
-
-  <div id="Total" class="pull-right">
-  <h4>Total Amount: $${ amount }</h4>
-  </div>
-    <div class="btn-group">
-    </div>
-  </form>
-        <br>
-        <p>The Founding Fathers</p>
-        <br>
-        <p> Having problems viewing this message?</p>
-        <a href="http://localhost:8000/homepage/checkout.receipt/"><p>View Items Here</p></a>
-      </html>
-      '''
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
 
     return templater.render_to_response(request, 'checkout.receipt.html', params)
 

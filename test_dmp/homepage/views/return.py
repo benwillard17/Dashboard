@@ -123,11 +123,11 @@ def edit(request):
 
 class RentalItemEditForm(forms.Form):
     condition = forms.CharField(required=True, min_length=1, max_length=100, label="Condition", widget=forms.TextInput(attrs={'placeholder': 'Condition', 'class': 'form-control'}))
-    new_damage = forms.BooleanField(required=True, label="New Damage", widget=forms.CheckboxInput())
+    new_damage = forms.BooleanField(required=False, label="New Damage", widget=forms.CheckboxInput())
     damage_fee = forms.DecimalField(required=True, label="Damage Fee", widget=forms.TextInput(attrs={'placeholder': 'Damage Fee', 'class': 'form-control'}))
     late_fee = forms.DecimalField(required=True, label="Late Fee", widget=forms.TextInput(attrs={'placeholder': 'Late Fee', 'class': 'form-control'}))
-    fees_paid = forms.BooleanField(required=True, label="Fees Paid", widget=forms.CheckboxInput())
-    fees_waived = forms.BooleanField(required=True, label="Fees Waived", widget=forms.CheckboxInput())
+    fees_paid = forms.BooleanField(required=False, label="Fees Paid", widget=forms.CheckboxInput())
+    fees_waived = forms.BooleanField(required=False, label="Fees Waived", widget=forms.CheckboxInput())
 
     # def clean_data(self):
     #     # check if the zip is not 5
